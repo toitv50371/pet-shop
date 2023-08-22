@@ -15,11 +15,9 @@
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-  href="https://fonts.googleapis.com/css2?family=Bangers&family=Carter+One&family=Nunito+Sans:wght@400;700&display=swap"
-  rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Carter+One&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -29,72 +27,58 @@
     - #HEADER
   -->
 
-  <header class="header bg-dark" data-header>
-    <div class="container">
-
-      <button class="nav-toggle-btn" aria-label="toggle manu" data-nav-toggler>
-        <ion-icon name="menu-outline" aria-hidden="true" class="menu-icon"></ion-icon>
-        <ion-icon name="close-outline" aria-label="true" class="close-icon"></ion-icon>
-      </button>
-
-      <a href="#" class="logo">Pet Shop</a>
-
-      <nav class="navbar navbar-dark bg-dark" data-navbar>
-        <ul class="navbar-list">
-          <li class="navbar-item">
-            <a href="#product__dog" class="navbar-link" data-nav-link>Boss</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#product__cat" class="navbar-link" data-nav-link>Hoàng thượng</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#dog__food" class="navbar-link" data-nav-link>Thức ăn cho Boss</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#cat__food" class="navbar-link" data-nav-link>Thức ăn cho hoàng thượng</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#footer" class="navbar-link" data-nav-link>Liện hệ</a>
-          </li>
-
-        </ul>
-
-        <a href="#" class="navbar-action-btn">Log In</a>
-      </nav>
-
-
-
-    </div>
+  <header class="bg-dark p-2 fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark">
+      <div class="container">
+        <a class="navbar-brand logo" href="#">Pet shop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#product__dog">Boss</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#product__cat">Hoàng thượng</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#dog__food">Thức ăn cho Boss</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#cat__food">Thức ăn cho Hoàng thượng</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">Liên hệ</a>
+            </li>
+          </ul>
+          <form class="header__account text-light">
+            <input class="form-control" type="text" placeholder="Search">
+            <a href="" class="header__account-icon">
+              <i class="ri-search-line"></i>
+            </a>
+            <a href="" class="header__account-icon">
+              <i class="ri-user-3-line"></i>
+            </a>
+            <a href="" class="header__account-icon">
+              <div class="header__account-badge">
+                <i class="ri-shopping-bag-line"></i>
+                <span class="header__account-quality">0</span>
+              </div>
+              
+            </a>
+          </form>
+        </div>
+      </div>
+    </nav>
+    
   </header>
-
-
-  <!-- <div class="header-actions">
-
-    <button class="action-btn" aria-label="Search">
-      <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-    </button>
-
-    <button class="action-btn user" aria-label="User">
-      <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-    </button>
-
-    <button class="action-btn" aria-label="cart">
-      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-
-      <span class="btn-badge">0</span>
-    </button>
-
-  </div> -->
 
 
   <main>
     <article>
       
-      <section class="section mt-5" id="home" aria-label="home">
+      <section class="section section__carousel" id="home" aria-label="home">
           <div class="container">
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
               <div class="carousel-indicators">
@@ -134,7 +118,7 @@
       -->
 
       <section class="section category" aria-label="category">
-        <h2 class="h2 section-title">
+        <h2 class="section-title">
           <span class="span">Lựa chọn</span> hàng đầu
         </h2>
         <div class="container">
@@ -231,11 +215,11 @@
                 <img src="assets/images/offer-banner-1.jpg" alt="" class="offer__img img-fluid">
                 <div class="offer__desciption">
                   <h3 class="card-subtitle">Siêu khuyến mãi</h3>
-                  <h3 class="h3 offer__card-title">
+                  <h3 class="offer__card-title">
                     Lựa chọn Boss <span class="offer__span">yêu thích</span>
                   </h3>
     
-                  <a href="#" class="offer__btn btn">Lựa chọn</a>
+                  <a href="#" class="btn">Lựa chọn</a>
                 </div>
               </div>
             </div>
@@ -245,11 +229,11 @@
                 <img src="assets/images/offer-banner-2.jpg" alt="" class="offer__img img-fluid">
                 <div class="offer__desciption">
                   <h4 class="card-subtitle">Siêu khuyến mãi</h4>
-                  <h3 class="h3 offer__card-title">
+                  <h3 class="offer__card-title">
                     Lựa chọn Boss <span class="offer__span">yêu thích</span>
                   </h3>
     
-                  <a href="#" class="offer__btn btn">Lựa chọn</a>
+                  <a href="#" class=" btn">Lựa chọn</a>
                 </div>
               </div>
             </div>
@@ -258,12 +242,12 @@
               <div class="offer-card">
                 <img src="assets/images/offer-banner-food.jpg" alt="" class="offer__img img-fluid ">
                 <div class="offer__desciption">
-                  <h3 class="h3 card-subtitle">Siêu khuyến mãi</h3>
-                  <h3 class="h3 offer__card-title">
+                  <h3 class="card-subtitle">Siêu khuyến mãi</h3>
+                  <h3 class="offer__card-title">
                     Lựa chọn Boss <span class="offer__span">yêu thích</span>
                   </h3>
     
-                  <a href="#" class="offer__btn btn">Lựa chọn</a>
+                  <a href="#" class=" btn">Lựa chọn</a>
                 </div>
               </div>
             </div>
@@ -566,7 +550,8 @@
           <img src="./assets/images/service-image.png" width="122" height="136" loading="lazy" alt="" class="img">
   
           <h2 class="h2 section-title">
-            <span class="span">Thú cưng thích gì</span> Pet Shop có đó...
+            <span class="span">Thú cưng thích gì</span>
+            <p>Pet Shop có đó...</p>
           </h2>
         </div>
       </section>
@@ -582,7 +567,7 @@
           </h2>
           <div class="row">
 
-            <div class="col-sm-12 col-md-6 col-lg-2">
+            <div class="col-sm-12 col-md-6 col-lg-3">
               <li class="scrollbar-item">
                 <div class="category-card  product__pet">
   
@@ -602,7 +587,7 @@
               </li>
             </div>
             
-            <div class="col-sm-12 col-md-6 col-lg-2">
+            <div class="col-sm-12 col-md-6 col-lg-3">
               <li class="scrollbar-item">
                 <div class="category-card  product__pet">
   
@@ -622,7 +607,7 @@
               </li>
             </div>
 
-            <div class="col-sm-12 col-md-6 col-lg-2">
+            <div class="col-sm-12 col-md-6 col-lg-3">
               <li class="scrollbar-item">
                 <div class="category-card  product__pet">
   
@@ -642,7 +627,7 @@
               </li>
             </div>
 
-            <div class="col-sm-12 col-md-6 col-lg-2">
+            <div class="col-sm-12 col-md-6 col-lg-3">
               <li class="scrollbar-item">
                 <div class="category-card  product__pet">
   
@@ -660,7 +645,7 @@
   
                 </div>
             </div>
-              <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <li class="scrollbar-item">
                   <div class="category-card  product__pet">
     
@@ -681,7 +666,7 @@
                   
                 </li>
               </div>
-              <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <li class="scrollbar-item">
                   <div class="category-card  product__pet">
     
@@ -702,7 +687,7 @@
                   
                 </li>
               </div>
-              <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <li class="scrollbar-item">
                   <div class="category-card  product__pet">
     
@@ -724,7 +709,7 @@
                 </li>
               </div>
 
-              <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <li class="scrollbar-item">
                   <div class="category-card  product__pet">
     
@@ -744,7 +729,7 @@
                 </li>
               </div>
   
-              <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <li class="scrollbar-item">
                   <div class="category-card  product__pet">
     
@@ -762,7 +747,7 @@
     
                   </div>
               </div>
-                <div class="col-sm-12 col-md-6 col-lg-2">
+                <div class="col-sm-12 col-md-6 col-lg-3">
                   <li class="scrollbar-item">
                     <div class="category-card  product__pet">
       
@@ -783,7 +768,7 @@
                     
                   </li>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-2">
+                <div class="col-sm-12 col-md-6 col-lg-3">
                   <li class="scrollbar-item">
                     <div class="category-card  product__pet">
       
@@ -804,7 +789,7 @@
                     
                   </li>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-2">
+                <div class="col-sm-12 col-md-6 col-lg-3">
                   <li class="scrollbar-item">
                     <div class="category-card  product__pet">
       
@@ -835,24 +820,8 @@
         - #CTA
       -->
 
-      <section class="cta has-bg-image" aria-label="cta" style="background-image: url('./assets/images/cta-bg.jpg')">
-        <div class="container">
-
-          <figure class="cta-banner">
-            <img src="./assets/images/cta-banner.png" width="900" height="660" loading="lazy" alt="cat" class="w-100">
-          </figure>
-
-          <div class="cta-content">
-
-            <h2 class="h2 cta__section-title">Boss thoả thích ăn uống</h2>
-
-            <h3 class="cta__section-text">
-              Boss và hoàng thượng thích gì Pet Shop có đó...
-            </h3>
-
-            <a href="#" class="btn">Lựa chọn</a>
-
-          </div>
+      <section class="cta has-bg-image" aria-label="cta">
+        <img src="assets/images/cta-bg.jpg" alt="" class="cta__bg">
 
         </div>
       </section>
@@ -865,7 +834,7 @@
           </h2>
           <div class="row">
 
-            <div class="col-sm-12 col-md-6 col-lg-2">
+            <div class="col-sm-12 col-md-6 col-lg-3">
               <li class="scrollbar-item">
                 <div class="category-card  product__pet">
   
@@ -885,7 +854,7 @@
               </li>
             </div>
             
-            <div class="col-sm-12 col-md-6 col-lg-2">
+            <div class="col-sm-12 col-md-6 col-lg-3">
               <li class="scrollbar-item">
                 <div class="category-card  product__pet">
   
@@ -905,7 +874,7 @@
               </li>
             </div>
 
-            <div class="col-sm-12 col-md-6 col-lg-2">
+            <div class="col-sm-12 col-md-6 col-lg-3">
               <li class="scrollbar-item">
                 <div class="category-card  product__pet">
   
@@ -925,7 +894,7 @@
               </li>
             </div>
 
-            <div class="col-sm-12 col-md-6 col-lg-2">
+            <div class="col-sm-12 col-md-6 col-lg-3">
               <li class="scrollbar-item">
                 <div class="category-card  product__pet">
   
@@ -943,7 +912,7 @@
   
                 </div>
             </div>
-              <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <li class="scrollbar-item">
                   <div class="category-card  product__pet">
     
@@ -964,7 +933,7 @@
                   
                 </li>
               </div>
-              <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <li class="scrollbar-item">
                   <div class="category-card  product__pet">
     
@@ -985,7 +954,7 @@
                   
                 </li>
               </div>
-              <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <li class="scrollbar-item">
                   <div class="category-card  product__pet">
     
@@ -1007,7 +976,7 @@
                 </li>
               </div>
 
-              <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <li class="scrollbar-item">
                   <div class="category-card  product__pet">
     
@@ -1027,7 +996,7 @@
                 </li>
               </div>
   
-              <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <li class="scrollbar-item">
                   <div class="category-card  product__pet">
     
@@ -1045,7 +1014,7 @@
     
                   </div>
               </div>
-                <div class="col-sm-12 col-md-6 col-lg-2">
+                <div class="col-sm-12 col-md-6 col-lg-3">
                   <li class="scrollbar-item">
                     <div class="category-card  product__pet">
       
@@ -1066,7 +1035,7 @@
                     
                   </li>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-2">
+                <div class="col-sm-12 col-md-6 col-lg-3">
                   <li class="scrollbar-item">
                     <div class="category-card  product__pet">
       
@@ -1087,7 +1056,7 @@
                     
                   </li>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-2">
+                <div class="col-sm-12 col-md-6 col-lg-3">
                   <li class="scrollbar-item">
                     <div class="category-card  product__pet">
       
