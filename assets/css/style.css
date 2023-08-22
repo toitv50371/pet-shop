@@ -414,14 +414,20 @@ body {
   position: relative;
 }
 .offer__img{
-  height: 374px;
-  width: 540px;
+  box-sizing: border-box;
+  height: 30rem;
+  width: 100%;
+  border-radius: 1rem;
 }
 
 .offer__desciption{
   position: absolute;
-  top: 10rem;
-  left: 5rem;
+  top: 5rem;
+  left: 2rem;
+}
+.card-subtitle {
+  font-size: 2.4rem;
+
 }
 .offer__span{
   font-size: var(--fs-4);
