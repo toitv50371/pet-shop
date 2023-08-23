@@ -204,8 +204,7 @@ body {
   color: var(--portland-orange);
 }
 .section-title p{
-  text-align: start;
-  margin: 1rem 0 0 9rem;
+  margin: 1rem 0 0 7rem;
 }
 
 .img-holder {
@@ -511,21 +510,9 @@ body {
   #BRAND
 \*-----------------------------------*/
 
-.brand { --section-padding: 100px; }
-
-.brand .has-scrollbar { gap: 0; }
-
-.brand .scrollbar-item { min-width: 50%; }
-
-.brand .scrollbar-item:not(:last-child) { border-inline-end: 1px solid var(--platinum); }
-
-.brand-card {
-  max-width: max-content;
-  margin-inline: auto;
+.brand { 
+  padding-bottom: 10rem;
 }
-
-
-
 
 
 /*-----------------------------------*\
@@ -666,25 +653,8 @@ body {
   #BreakPoint
 \*-----------------------------------*/
 
-/**
- * responsive for large than 340px screen
- */
-
-@media (min-width: 576px) {
-   .section-title {
-  }
-
-}
-/**
- * responsive for medium
- */
-
-@media screen and (min-width: 576px) {
+@media (min-width: 576px) and (max-width: 767px)  {
   /* Navbar */
-  .nav-item{
-    margin: 0;
-
-  }
   .nav-link{
     font-size:13px;
 
@@ -733,10 +703,10 @@ body {
 }
 
 /**
- * responsive for large than 992px screen
+ * responsive for large than 768px screen
  */
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) and (max-width:991px) {
 
 
   :root {
@@ -744,14 +714,60 @@ body {
     --fs-3: 3rem;
 
   }
-  
+
+  /* Navbar */
+  .navbar-nav{
+    align-items: center;
+    text-align: center;
+  }
+  .nav-link{
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-item{
+    margin: 0;
+  }
+  .header__account{
+    margin  : 0;
+  }
+  .header__account-icon, .header__account-quality{
+    font-size: 1.2rem;
+  }
+
+  /* carousel */
+  .section__carousel{
+    padding-top: 5.6rem;
+  }
+  /*offer*/
+
+  .offer__img{
+    height: 21rem;
+  }
+  .card-subtitle {
+    font-size: 1.5rem;
+  }
+  .offer__card-title, .offer__span{
+    font-size: 1.2rem;
+  }
+  .btn {
+    padding: 0.8rem 1.5rem;
+  }
+
+  /* Services*/
+  .section-title{
+    text-align: center;
+  }
+  /* cta */
+  .cta__bg {
+    height: 30rem;
+}
+
 
   /**
    * REUSED STYLE
    */
-  
 
-  .container { padding-inline: 30px; }
 
   .scrollbar-item { min-width: calc(20% - 24px); }
 
@@ -764,7 +780,7 @@ body {
   .header .action-btn.user { display: block; }
 
   .logo { 
-    font-size: 2.5rem; 
+    font-size: 2rem; 
   }
 
 
@@ -780,26 +796,41 @@ body {
    * SERVICE
    */
 
-  .service .grid-list { grid-template-columns: repeat(4, 1fr); }
-
-  .service-card .h3 { --fs-3: 2.4rem; }
-
-
-
-  /**
-   * BRAND
-   */
-
-  .brand .scrollbar-item { min-width: 20%; }
-
-
+ .grid-list { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .card__icon{
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+  .card-text{
+    width: 25rem;
+    margin: auto;
+  }
+  .service-card .h3 { font-size: var(--fs-6); }
+  .p {
+    font-size: .8rem;
+  }
 
   /**
    * FOOTER
    */
 
   .footer-top .container { grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr; }
-
+  .footer-list-title{
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .footer-list{
+    padding: 0;
+  }
+  .container{
+    padding: 0;
+  }
+  .contact-list, .social-link{
+    font-size: 1.3rem;
+  }
+  
 } 
 
 
@@ -826,23 +857,48 @@ body {
     --fs-3: 3.2rem;
 
   }
+  .section{
+    margin-bottom: 5rem;
+  }
+  .section-title{
+    font-size: var(--fs-2);
+  }
+  /* Navbar */
+  .logo {
+    font-size: 4rem;
+  }
+  .nav-link{
+    font-size: 1.8rem;
+  }
+  .header__account {
+    margin: 0;
 
+  }
+  .header__account-icon{
+    font-size: var(--fs-4);
+  }
 
-
+  /* carousel */
+  .section__carousel {
+    padding-top: 8.6rem;
+  }
+  /* offer */
+  .offer__img {
+    height: 30rem;
+  }
+  /* cta */
+  .cta__bg {
+    height: 50rem;
+  }
+  .grid-list { 
+    grid-template-columns: repeat(4, 1fr); 
+  }
   /**
    * REUSED STYLE
    */
 
-  .grid-list { grid-template-columns: repeat(4, 1fr); }
-
-
-
-  /**
-   * CTA
-   */
-
-
-
+  .footer-top .container { 
+    grid-template-columns: repeat(4, 1fr); }
 
   /**
    * BRAND, FOOTER
