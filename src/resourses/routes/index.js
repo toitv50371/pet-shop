@@ -1,9 +1,13 @@
 const express = require('express')
 
-const productRoute = require('./product') 
+const siteRoute = require('./site')
+const productRoute = require('./product')
+ 
 
 function route(app){
-    app.use('/', productRoute)
+
+    app.use('/pets', productRoute)
+    app.use('/', siteRoute)
 
 }
 

@@ -192,23 +192,27 @@
             </h2>
             <div class="row">
                 
-                {{#each dogs}}
+                {{#each pets}}
+                {{#xif this.type 'dog'}}
                 <div class="col-sm-12 col-md-6 col-lg-3">
                     <li class="scrollbar-item">
-                    <div class="category-card  product__pet">
+                    <div class="category-card product__pet">
 
                         <figure class="card-banner img-holder product__pet-img">
-                        <img src="{{this.img}}" 
-                            class="img-cover ">
+                          <a href="pets/{{this.slug}}"> 
+                            <img src="{{this.img}}" 
+                                class="img-cover ">
+                          </a>
                         </figure>
 
-                        <h3 class="h3 card-title">
-                        {{this.name}}
-                        </h3>
+                        <a href="pets/{{this.slug}}">
+                          <h3 class="h3 card-title">{{this.name}}</h3>
+                        </a>
 
                     </div>
                     </li>
                 </div>
+                {{/xif}}
                 {{/each}}
             </div>
 
@@ -224,22 +228,29 @@
             Giống<span class="span"> Mèo Cảnh</span> 
           </h2>
           <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-3">
-              <li class="scrollbar-item">
-                <div class="category-card  product__pet">
-  
-                  <figure class="card-banner img-holder product__pet-img">
-                    <img src="./images/cat-Meo-Anh-Long-Dai.jpg" 
-                      class="img-cover ">
-                  </figure>
-  
-                  <h3 class="h3 card-title">
-                    Anh Lông Dài
-                  </h3>
-  
+              {{#each pets}}
+                {{#xif this.type 'cat'}}
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <li class="scrollbar-item">
+                    <div class="category-card product__pet">
+
+                        <figure class="card-banner img-holder product__pet-img">
+                          <a href="pets/{{this.slug}}"> 
+                            <img src="{{this.img}}" 
+                                class="img-cover ">
+                          </a>
+                        </figure>
+
+                        <a href="pets/{{this.slug}}">
+                          <h3 class="h3 card-title">{{this.name}}</h3>
+                        </a>
+
+                    </div>
+                    </li>
                 </div>
-              </li>
-            </div>
+                {{/xif}}
+              {{/each}}
+              
 
           </div>
 
@@ -267,252 +278,30 @@
             Thức ăn cho<span class="span"> Boss</span> 
           </h2>
           <div class="row">
-
-            <div class="col-sm-12 col-md-6 col-lg-3">
-              <li class="scrollbar-item">
-                <div class="category-card  product__pet">
-  
-                  <figure class="card-banner img-holder product__pet-img">
-                    <img src="./images/dog-food-1.webp" 
-                      class="img-cover ">
-                  </figure>
-  
-                  <p class="pet__food-description">
-                    Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                  </p>
-                  <p class="pet__food-price">
-                    75.000đ
-                  </p>
-  
-                </div>
-              </li>
-            </div>
-            
-            <div class="col-sm-12 col-md-6 col-lg-3">
-              <li class="scrollbar-item">
-                <div class="category-card  product__pet">
-  
-                  <figure class="card-banner img-holder product__pet-img">
-                    <img src="./images/dog-food-1.webp" 
-                      class="img-cover ">
-                  </figure>
-  
-                  <p class="pet__food-description">
-                    Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                  </p>
-                  <p class="pet__food-price">
-                    75.000đ
-                  </p>
-  
-                </div>
-              </li>
-            </div>
-
-            <div class="col-sm-12 col-md-6 col-lg-3">
-              <li class="scrollbar-item">
-                <div class="category-card  product__pet">
-  
-                  <figure class="card-banner img-holder product__pet-img">
-                    <img src="./images/dog-food-1.webp" 
-                      class="img-cover ">
-                  </figure>
-  
-                  <p class="pet__food-description">
-                    Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                  </p>
-                  <p class="pet__food-price">
-                    75.000đ
-                  </p>
-  
-                </div>
-              </li>
-            </div>
-
-            <div class="col-sm-12 col-md-6 col-lg-3">
-              <li class="scrollbar-item">
-                <div class="category-card  product__pet">
-  
-                  <figure class="card-banner img-holder product__pet-img">
-                    <img src="./images/dog-food-1.webp" 
-                      class="img-cover ">
-                  </figure>
-  
-                  <p class="pet__food-description">
-                    Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                  </p>
-                  <p class="pet__food-price">
-                    75.000đ
-                  </p>
-  
-                </div>
-            </div>
-              <div class="col-sm-12 col-md-6 col-lg-3">
-                <li class="scrollbar-item">
-                  <div class="category-card  product__pet">
-    
-                    <figure class="card-banner img-holder product__pet-img">
-                      <img src="./images/dog-food-1.webp" 
-                        class="img-cover ">
-                    </figure>
-    
-                    <p class="pet__food-description">
-                      Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                    </p>
-                    <p class="pet__food-price">
-                      75.000đ
-                    </p>
-    
-                  </div>
-
-                  
-                </li>
-              </div>
-              <div class="col-sm-12 col-md-6 col-lg-3">
-                <li class="scrollbar-item">
-                  <div class="category-card  product__pet">
-    
-                    <figure class="card-banner img-holder product__pet-img">
-                      <img src="./images/dog-food-1.webp" 
-                        class="img-cover ">
-                    </figure>
-    
-                    <p class="pet__food-description">
-                      Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                    </p>
-                    <p class="pet__food-price">
-                      75.000đ
-                    </p>
-    
-                  </div>
-
-                  
-                </li>
-              </div>
-              <div class="col-sm-12 col-md-6 col-lg-3">
-                <li class="scrollbar-item">
-                  <div class="category-card  product__pet">
-    
-                    <figure class="card-banner img-holder product__pet-img">
-                      <img src="./images/dog-food-1.webp" 
-                        class="img-cover ">
-                    </figure>
-    
-                    <p class="pet__food-description">
-                      Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                    </p>
-                    <p class="pet__food-price">
-                      75.000đ
-                    </p>
-    
-                  </div>
-
-                  
-                </li>
-              </div>
-
-              <div class="col-sm-12 col-md-6 col-lg-3">
-                <li class="scrollbar-item">
-                  <div class="category-card  product__pet">
-    
-                    <figure class="card-banner img-holder product__pet-img">
-                      <img src="./images/dog-food-1.webp" 
-                        class="img-cover ">
-                    </figure>
-    
-                    <p class="pet__food-description">
-                      Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                    </p>
-                    <p class="pet__food-price">
-                      75.000đ
-                    </p>
-    
-                  </div>
-                </li>
-              </div>
-  
-              <div class="col-sm-12 col-md-6 col-lg-3">
-                <li class="scrollbar-item">
-                  <div class="category-card  product__pet">
-    
-                    <figure class="card-banner img-holder product__pet-img">
-                      <img src="./images/dog-food-1.webp" 
-                        class="img-cover ">
-                    </figure>
-    
-                    <p class="pet__food-description">
-                      Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                    </p>
-                    <p class="pet__food-price">
-                      75.000đ
-                    </p>
-    
-                  </div>
-              </div>
+            {{#each foods}}
+                {{#xif this.type 'cat'}}
                 <div class="col-sm-12 col-md-6 col-lg-3">
                   <li class="scrollbar-item">
                     <div class="category-card  product__pet">
       
                       <figure class="card-banner img-holder product__pet-img">
-                        <img src="./images/dog-food-1.webp" 
+                        <img src="{{this.img}}" 
                           class="img-cover ">
                       </figure>
       
                       <p class="pet__food-description">
-                        Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
+                        {{this.name}}
                       </p>
                       <p class="pet__food-price">
-                        75.000đ
+                        {{this.price}}
                       </p>
       
                     </div>
-  
-                    
                   </li>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-3">
-                  <li class="scrollbar-item">
-                    <div class="category-card  product__pet">
-      
-                      <figure class="card-banner img-holder product__pet-img">
-                        <img src="./images/dog-food-1.webp" 
-                          class="img-cover ">
-                      </figure>
-      
-                      <p class="pet__food-description">
-                        Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                      </p>
-                      <p class="pet__food-price">
-                        75.000đ
-                      </p>
-      
-                    </div>
-  
-                    
-                  </li>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-3">
-                  <li class="scrollbar-item">
-                    <div class="category-card  product__pet">
-      
-                      <figure class="card-banner img-holder product__pet-img">
-                        <img src="./images/dog-food-1.webp" 
-                          class="img-cover ">
-                      </figure>
-      
-                      <p class="pet__food-description">
-                        Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                      </p>
-                      <p class="pet__food-price">
-                        75.000đ
-                      </p>
-      
-                    </div>
-  
-                    
-                  </li>
-                </div>
-
-          
+                {{/xif}}
+              {{/each}}
+          </div>
 
         </div>
       </section>
@@ -535,250 +324,7 @@
           </h2>
           <div class="row">
 
-            <div class="col-sm-12 col-md-6 col-lg-3">
-              <li class="scrollbar-item">
-                <div class="category-card  product__pet">
-  
-                  <figure class="card-banner img-holder product__pet-img">
-                    <img src="./images/dog-food-1.webp" 
-                      class="img-cover ">
-                  </figure>
-  
-                  <p class="pet__food-description">
-                    Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                  </p>
-                  <p class="pet__food-price">
-                    75.000đ
-                  </p>
-  
-                </div>
-              </li>
-            </div>
-            
-            <div class="col-sm-12 col-md-6 col-lg-3">
-              <li class="scrollbar-item">
-                <div class="category-card  product__pet">
-  
-                  <figure class="card-banner img-holder product__pet-img">
-                    <img src="./images/dog-food-1.webp" 
-                      class="img-cover ">
-                  </figure>
-  
-                  <p class="pet__food-description">
-                    Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                  </p>
-                  <p class="pet__food-price">
-                    75.000đ
-                  </p>
-  
-                </div>
-              </li>
-            </div>
-
-            <div class="col-sm-12 col-md-6 col-lg-3">
-              <li class="scrollbar-item">
-                <div class="category-card  product__pet">
-  
-                  <figure class="card-banner img-holder product__pet-img">
-                    <img src="./images/dog-food-1.webp" 
-                      class="img-cover ">
-                  </figure>
-  
-                  <p class="pet__food-description">
-                    Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                  </p>
-                  <p class="pet__food-price">
-                    75.000đ
-                  </p>
-  
-                </div>
-              </li>
-            </div>
-
-            <div class="col-sm-12 col-md-6 col-lg-3">
-              <li class="scrollbar-item">
-                <div class="category-card  product__pet">
-  
-                  <figure class="card-banner img-holder product__pet-img">
-                    <img src="./images/dog-food-1.webp" 
-                      class="img-cover ">
-                  </figure>
-  
-                  <p class="pet__food-description">
-                    Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                  </p>
-                  <p class="pet__food-price">
-                    75.000đ
-                  </p>
-  
-                </div>
-            </div>
-              <div class="col-sm-12 col-md-6 col-lg-3">
-                <li class="scrollbar-item">
-                  <div class="category-card  product__pet">
-    
-                    <figure class="card-banner img-holder product__pet-img">
-                      <img src="./images/dog-food-1.webp" 
-                        class="img-cover ">
-                    </figure>
-    
-                    <p class="pet__food-description">
-                      Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                    </p>
-                    <p class="pet__food-price">
-                      75.000đ
-                    </p>
-    
-                  </div>
-
-                  
-                </li>
-              </div>
-              <div class="col-sm-12 col-md-6 col-lg-3">
-                <li class="scrollbar-item">
-                  <div class="category-card  product__pet">
-    
-                    <figure class="card-banner img-holder product__pet-img">
-                      <img src="./images/dog-food-1.webp" 
-                        class="img-cover ">
-                    </figure>
-    
-                    <p class="pet__food-description">
-                      Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                    </p>
-                    <p class="pet__food-price">
-                      75.000đ
-                    </p>
-    
-                  </div>
-
-                  
-                </li>
-              </div>
-              <div class="col-sm-12 col-md-6 col-lg-3">
-                <li class="scrollbar-item">
-                  <div class="category-card  product__pet">
-    
-                    <figure class="card-banner img-holder product__pet-img">
-                      <img src="./images/dog-food-1.webp" 
-                        class="img-cover ">
-                    </figure>
-    
-                    <p class="pet__food-description">
-                      Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                    </p>
-                    <p class="pet__food-price">
-                      75.000đ
-                    </p>
-    
-                  </div>
-
-                  
-                </li>
-              </div>
-
-              <div class="col-sm-12 col-md-6 col-lg-3">
-                <li class="scrollbar-item">
-                  <div class="category-card  product__pet">
-    
-                    <figure class="card-banner img-holder product__pet-img">
-                      <img src="./images/dog-food-1.webp" 
-                        class="img-cover ">
-                    </figure>
-    
-                    <p class="pet__food-description">
-                      Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                    </p>
-                    <p class="pet__food-price">
-                      75.000đ
-                    </p>
-    
-                  </div>
-                </li>
-              </div>
-  
-              <div class="col-sm-12 col-md-6 col-lg-3">
-                <li class="scrollbar-item">
-                  <div class="category-card  product__pet">
-    
-                    <figure class="card-banner img-holder product__pet-img">
-                      <img src="./images/dog-food-1.webp" 
-                        class="img-cover ">
-                    </figure>
-    
-                    <p class="pet__food-description">
-                      Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                    </p>
-                    <p class="pet__food-price">
-                      75.000đ
-                    </p>
-    
-                  </div>
-              </div>
-                <div class="col-sm-12 col-md-6 col-lg-3">
-                  <li class="scrollbar-item">
-                    <div class="category-card  product__pet">
-      
-                      <figure class="card-banner img-holder product__pet-img">
-                        <img src="./images/dog-food-1.webp" 
-                          class="img-cover ">
-                      </figure>
-      
-                      <p class="pet__food-description">
-                        Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                      </p>
-                      <p class="pet__food-price">
-                        75.000đ
-                      </p>
-      
-                    </div>
-  
-                    
-                  </li>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-3">
-                  <li class="scrollbar-item">
-                    <div class="category-card  product__pet">
-      
-                      <figure class="card-banner img-holder product__pet-img">
-                        <img src="./images/dog-food-1.webp" 
-                          class="img-cover ">
-                      </figure>
-      
-                      <p class="pet__food-description">
-                        Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                      </p>
-                      <p class="pet__food-price">
-                        75.000đ
-                      </p>
-      
-                    </div>
-  
-                    
-                  </li>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-3">
-                  <li class="scrollbar-item">
-                    <div class="category-card  product__pet">
-      
-                      <figure class="card-banner img-holder product__pet-img">
-                        <img src="./images/dog-food-1.webp" 
-                          class="img-cover ">
-                      </figure>
-      
-                      <p class="pet__food-description">
-                        Hạt Mềm ANF Soft Hàn Quốc Vị Cá Hồi 1.2kg
-                      </p>
-                      <p class="pet__food-price">
-                        75.000đ
-                      </p>
-      
-                    </div>
-  
-                    
-                  </li>
-                </div>
-
+          
           
 
         </div>

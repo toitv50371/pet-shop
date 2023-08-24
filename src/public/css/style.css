@@ -303,7 +303,7 @@ body {
   font-size: var(--fs-7);
 }
 
-.form-control{
+.header__search{
   width: 20rem;
   display: none;
 }
@@ -324,8 +324,24 @@ body {
   margin-right:1rem;
   color: rgb(241, 237, 237) ;
 }
-
-
+/* FORM CONTROL */
+.form-control {
+  padding: .5rem 0;
+  font-size: 1.5rem;
+  line-height: 1rem;
+}
+.form-label{
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.form-btn{
+  padding: 1rem 10rem;
+  font-size: 1.5rem;
+}
+.form-btn:hover{
+  background-color: var(--black);
+}
 /*-----------------------------------*\
   #section__slide
 \*-----------------------------------*/
@@ -875,8 +891,9 @@ body {
   .header__account-icon{
     font-size: var(--fs-4);
   }
-  .create__dog{
+  .content__padding{
     margin: 20rem 0;
+    align-items: center;
   }
 
   /* carousel */
@@ -894,6 +911,41 @@ body {
   .grid-list { 
     grid-template-columns: repeat(4, 1fr); 
   }
+  /* detail pet */
+  .detail__pet{
+    justify-content: center;
+    align-items: center;
+  }
+  .detail__pet-img{
+    margin-right: 5rem;
+
+  }
+
+  .detail__pet-title{
+    margin: 0 0 2rem 0;
+    transition: var(--transition-1);
+    font-size: var(--fs-5);
+    font-weight: 700;
+  }
+  .detail__pet-description{
+    max-width: 40rem;
+  }
+  .detail__pet-des{
+    list-style: disc;
+  }
+
+  .detail__pet-text{
+    color: var(--black);
+    font-size: var(--fs-7);
+    font-weight: 500;
+    margin-bottom: 1rem ;
+  }
+  .detail__pet-img{
+    display: flex;
+    justify-content: center;
+  }
+ 
+
   /**
    * REUSED STYLE
    */
