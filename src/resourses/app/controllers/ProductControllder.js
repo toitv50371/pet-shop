@@ -1,6 +1,6 @@
 
-const Pets = require('../models/Pets')
-const Foods = require('../models/Pets')
+const {Pets, Foods} = require('../models/Pets')
+// const Foods = require('../models/Pets')
 
 
 
@@ -27,15 +27,15 @@ class ProductController {
     }
 
     // create food
-    createFood(req, res, next) {
-        res.render('pet/createFood')
-    }
-    storeFood(req, res, next) {
-        res.json(req.body)
-        // const food = new Foods(req.body)
-        // food.save()
-        //     .then(() => res.redirect('createFood'))
-        //     .catch(err => next(err))
-    }
+    // createFood(req, res, next) {
+    //     res.render('pet/createFood')
+    // }
+    // storeFood(req, res, next) {
+    //     res.json(req.body)
+    //     const food = new Foods(req.body)
+    //     food.save()
+    //         .then(() => res.redirect('createFood'))
+    //         .catch(err => next(err))
+    // }
 }
 module.exports = new ProductController()

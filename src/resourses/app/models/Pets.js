@@ -17,8 +17,6 @@ const Pets = new Schema({
 })
 
 
-module.exports = mongoose.model('Pets', Pets);
-
 const Foods = new Schema({
     type: {type: String},
     name: {type: String},
@@ -26,4 +24,12 @@ const Foods = new Schema({
     img: {type: String},
     slug: { type: String, slug: "name", unique: true }
 })
-module.exports = mongoose.model('Foods', Foods);
+
+
+
+const PetsSchema = mongoose.model('Pets', Pets);
+const FoodsSchema = mongoose.model('Foods', Foods);
+
+
+
+ module.exports =  {PetsSchema, FoodsSchema}
