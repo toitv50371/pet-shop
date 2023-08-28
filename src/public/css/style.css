@@ -185,6 +185,11 @@ body {
   border-radius: 50px;
   transition: var(--transition-1);
 }
+.btn:hover {
+  background-color: var(--black);
+  color: var(--white);
+  max-width: max-content;
+}
 
 .section__carousel{
   padding-top: 7.2rem;
@@ -291,16 +296,23 @@ body {
 .header__account-icon:hover{
   color: var(--portland-orange);
 }
-
-.header__account-badge{
-  position: relative;
+.header__user, .header__user-option{
+  display: flex;
+  font-size: 1rem;
+}
+.header__user-detail{
+  display: block;
+  align-self: center;
+}
+.header__user-option span {
+  margin: 0 1rem;
+}
+.header__user-option a:hover{
+  color: var(--portland-orange);
 }
 
-.header__account-quality{
-  position: absolute;
-  top: -8px;
-  left: 16px;
-  font-size: var(--fs-7);
+.header__user-option p{
+  margin: 0;
 }
 
 .header__search{
@@ -342,6 +354,15 @@ body {
 .form-btn:hover{
   background-color: var(--black);
 }
+
+.dropdown-toggle::after{
+  display: none;
+}
+.dropdown-item{
+  width: 15rem;
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+}
 /*-----------------------------------*\
   #section__slide
 \*-----------------------------------*/
@@ -360,8 +381,9 @@ body {
   margin-bottom: 6rem;
 }
 .product__pet-img{
-  height: 24rem;
-  padding: 2rem 8rem;
+  height: 20rem;
+  padding: 2rem 6rem;
+  display: inline-flex;
 }
 .card-banner { border-radius: var(--radius-10); }
 
@@ -882,17 +904,19 @@ body {
     font-size: 4rem;
   }
   .nav-link{
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
-  .header__account {
+  .header__account{
     margin: 0;
-
   }
   .header__account-icon{
-    font-size: var(--fs-4);
+    font-size: 3rem;
+  }
+  .header__user-detail h4{
+    margin: 0;
   }
   .content__padding{
-    margin: 20rem 0;
+    margin: 15rem 0;
     align-items: center;
   }
 
@@ -911,40 +935,93 @@ body {
   .grid-list { 
     grid-template-columns: repeat(4, 1fr); 
   }
+  /* Create Pet */
+  .form-select{
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  .form__item{
+    font-size: 1.5rem;
+    padding: .5rem;
+  }
   /* detail pet */
-  .detail__pet{
+  .detail__product{
     justify-content: center;
     align-items: center;
   }
-  .detail__pet-img{
+  
+  .detail__product-img{
     margin-right: 5rem;
-
   }
 
-  .detail__pet-title{
+  .detail__product-title{
     margin: 0 0 2rem 0;
     transition: var(--transition-1);
     font-size: var(--fs-5);
     font-weight: 700;
   }
-  .detail__pet-description{
+
+  /* .detail__product-description{
     max-width: 40rem;
-  }
-  .detail__pet-des{
+  } */
+  .detail__product-des{
     list-style: disc;
   }
 
-  .detail__pet-text{
+  .detail__product-text{
     color: var(--black);
     font-size: var(--fs-7);
     font-weight: 500;
-    margin-bottom: 1rem ;
+    margin-bottom: 1rem;
   }
-  .detail__pet-img{
+
+  .detail__product-weigh{
+    color: var(--black);
+    font-size: var(--fs-7);
+    font-weight: 500;
+    margin: 5rem 0;
+  }
+
+  .detail__product-img{
     display: flex;
     justify-content: center;
   }
  
+  .detail__cart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+  }
+  .detail__quantity{
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .detail__product-quantity{
+    margin-right: 1rem;
+  }
+  .detail__btn{
+    font-size: 1.2rem;
+  }
+  .container{
+    padding: 0;
+  }
+  .detail__product-price{
+    transition: var(--transition-1);
+    font-size: var(--fs-5);
+    font-weight: 700;
+    color: var(--portland-orange);
+  }
+
+  /* quantity */
+  .qty {
+      width: 40px;
+      height: 25px;
+      text-align: center;
+  }
+  .plus { width:25px; height:25px;}
+  .minus { width:25px; height:25px;}
 
   /**
    * REUSED STYLE

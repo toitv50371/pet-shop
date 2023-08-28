@@ -1,0 +1,56 @@
+<div class="container content__padding">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-12">
+      <div class="container">
+        <div class="row detail__product">
+          <div class="col-md-3 col-lg-3 detail__product-img">
+          <img src="{{food.img}}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-5 col-lg-5">
+            <div class="card-body">
+              <h3 class="detail__product-title">{{food.name}}</h3>
+              <h5 class="detail__product-text">Thương hiệu: {{food.brand}}</h5>
+              <h5 class="detail__product-price">{{food.price}}đ</h5>
+              <h5 class="detail__product-weigh">Khối lượng: {{food.weigh}}g</h5>
+              <hr>
+              <div class="detail__cart">
+                <div class="container">
+                  <div class="row">
+                    <div  class=" col-sm-6 col-md-6 col-lg-6">
+                      <form id='myform' method='POST' class='detail__quantity' action='#'>
+                        <h5 class="detail__product-quantity">Số lượng:</h5>
+                        <input type='button' value='-' class='minus'/>
+                        <input type='text' name='quantity' value='0' class='num qty' />
+                        <input type='button' value='+' class='plus'/>
+                      </form>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <button class="btn detail__btn">Thêm vào giỏ hàng</button>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Quantity
+  const plus = document.getElementById("plus"),
+        minus = document.getElementById("minus"),
+        num = document.getElementById("num");
+
+  let a = 1
+
+  plus.addEventListener("click", ()=>{
+    a++;
+    console.log("a");
+  })
+</script>

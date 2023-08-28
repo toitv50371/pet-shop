@@ -2,7 +2,7 @@
 const {Pets, Foods} = require('../models/Pets')
 
 
-class SiteController {
+class User {
 
     index(req, res, next) {
         Pets.find({})
@@ -23,4 +23,4 @@ class SiteController {
     }
 
 }
-module.exports = new SiteController()
+module.exports = new User()

@@ -4,32 +4,33 @@ const slug = require('mongoose-slug-updater')
 const Schema = mongoose.Schema;
 mongoose.plugin(slug);
 
-
-const Pets = new Schema({
+const PetsSchema = new Schema({
     name: {type: String},
     age: {type: String},
-    sex: {type: String},
-    price: {type: Number, },
+    price: {
+        type: Number
+    },
     type: {type: String},
     img: {type: String},
     slug: { type: String, slug: "name", unique: true }
+    }
+)
 
-})
-
-
-const Foods = new Schema({
+const FoodsSchema = new Schema({
     type: {type: String},
     name: {type: String},
-    price: {type: Number, },
+    price: {type: Number},
+    brand: {type: String},
+    weigh: {type: String},
     img: {type: String},
     slug: { type: String, slug: "name", unique: true }
 })
 
 
 
-const PetsSchema = mongoose.model('Pets', Pets);
-const FoodsSchema = mongoose.model('Foods', Foods);
+const Pets = mongoose.model('Pets', PetsSchema);
+const Foods = mongoose.model('Foods', FoodsSchema);
 
 
 
- module.exports =  {PetsSchema, FoodsSchema}
+module.exports =  {Pets, Foods}
