@@ -27,7 +27,14 @@ app.engine('hbs', handlebars.engine({
             if(v1==v2){
                 return options.fn(this)
             }
+        },
+        pay(num, val) {
+            return num * val
+        },
+        sum(a, b) {
+            return a + b
         }
+
     }
 }) )
 app.set('view engine', 'hbs')

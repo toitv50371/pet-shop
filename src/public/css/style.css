@@ -155,7 +155,9 @@ body {
 .container { padding-inline: 15px; }
 
 
-
+.color-theme{
+  color: var(--portland-orange) !important;
+}
 
 .h1,
 .h2,
@@ -1015,13 +1017,60 @@ body {
   }
 
   /* quantity */
+  .counter{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
   .qty {
       width: 40px;
       height: 25px;
       text-align: center;
   }
-  .plus { width:25px; height:25px;}
-  .minus { width:25px; height:25px;}
+  .down, .up { width:25px; height:25px;}
+
+  /* Modal content */
+  .modal-content{
+    padding: 2rem;
+  }
+  .modal__product{
+    color: var(--portland-orange);
+    font-size: 1.5rem;
+    margin: 0 .5rem;
+  }
+  .modal__img{
+    max-width: 5rem;
+  }
+  .modal__des{
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--black);
+    font-weight: 500;
+    text-align: start;
+  }
+  .modal__title{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .modal-body{
+    text-align: center;
+  }
+  .modal__delete{
+    display: flex;
+    align-items: center;
+  }
+  .modal__delete p{
+    font-size: 1.3rem;
+    margin: 0;
+
+  }
+  .modal__delete i{
+    font-size: 1.3rem;
+    margin-top: .2rem;
+  }
+
 
   /**
    * REUSED STYLE
@@ -1030,6 +1079,50 @@ body {
   .footer-top .container { 
     grid-template-columns: repeat(4, 1fr); }
 
+  /* form control */
+  .content__padding-pay{
+    margin: 10rem 0;
+    
+  }
+  .form-control{
+    height: 5rem !important;
+    line-height: 3.25rem !important;
+  }
+  .form__textarea{
+    height: 8rem !important;
+  }
+
+  .pay__content{
+    justify-content: center;
+
+    align-self: center;
+  }
+  .pay__gg{
+    align-items: center;
+    text-align: center;
+  }
+  .pay__btn{
+    background-color: var(--portland-orange);
+    color: var(--white);
+    max-width: max-content;
+    padding: 1rem 2rem;
+    font-weight: var(--fw-700);
+    border-radius: 1rem;
+    transition: var(--transition-1);
+  }
+  .pay__btn:hover{
+    background-color: var(--black);
+  }
+  .pay__img{
+    height: 5rem;
+  }
+  .pay__right{
+    display: flex;
+    justify-content: end;
+  }
+  .pay__detail{
+    margin: 1rem 0;
+  }
   /**
    * BRAND, FOOTER
    */

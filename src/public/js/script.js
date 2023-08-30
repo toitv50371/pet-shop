@@ -62,3 +62,12 @@ const activeElemOnScroll = function () {
 
 addEventOnElem(window, "scroll", activeElemOnScroll);
 
+// show modal
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})
+
+// send data to modal

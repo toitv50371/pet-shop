@@ -1,0 +1,131 @@
+<div class="container content__padding-pay">
+    <div class="row pay__content">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <p class="detail__product-title">Thông tin mua hàng: </p>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Họ và tên">
+                <label for="floatingInput">Họ và tên</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Số điện thoại">
+                <label for="floatingInput">Số điện thoại</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Địa chỉ">
+                <label for="floatingInput">Địa chỉ</label>
+            </div>
+            <select class="form-select form-select-lg mb-3 form-floating" id="floatingInput"  placeholder="Tỉnh thành">
+                <option for="floatingInput">Thành phố</option>
+                <option value="1">TP HCM</option>
+                <option value="2">Đà Nẵng</option>
+                <option value="3">HN</option>
+            </select>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="">
+                <label for="floatingInput">Quận huyện</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="">
+                <label for="floatingInput">Phường xã</label>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Giao hàng đến địa chỉ khác
+                </label>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control form__textarea" placeholder="Ghi chú" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">Ghi chú</label>
+            </div>
+        </div>
+        <div class="col-sm-5 col-md-5 col-lg-5" style="align-self: center">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Đơn hàng</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="container">
+                            <div class="row pay__detail">
+                                <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <img src="{{pet.img}}" alt="" class="pay__img">
+                                </div>
+                                <div class="col-sm-5 col-md-5 col-lg-5">
+                                    <p>{{pet.name}}</p>
+                                </div>
+                                <div class="col-sm-2 col-md-2 col-lg-2">
+                                    <p>1</p>
+                                </div>
+                                <div class="col-sm-2 col-md-2 col-lg-2">
+                                    <p>{{pet.price}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li class="list-group-item">
+                        <div class="container">
+                            <div class="row pay__gg">
+                                <div class="col-sm-8 col-md-8 col-lg-8">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder="Mã giảm giá">
+                                        <label for="floatingInput">Mã giảm giá</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-lg-4 pay__right">
+                                    <button class="pay__btn btn-primary">Áp dụng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-8 col-md-8 col-lg-8">
+                                    <p>Tạm tính</p>
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-lg-4 pay__right">
+                                    <p>{{ pay 1 pet.price }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-8 col-md-8 col-lg-8">
+                                    <p>Phí vận chuyển</p>
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-lg-4 pay__right">
+                                    <p>0đ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-8 col-md-8 col-lg-8 ">
+                            <p>Tổng cộng</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 pay__right">
+                            <p>{{sum pet.price 0}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8 col-md-8 col-lg-8">
+                            <p>Quay về giỏ hàng</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 pay__right">
+                            <button class="pay__btn btn-primary">Đặt hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

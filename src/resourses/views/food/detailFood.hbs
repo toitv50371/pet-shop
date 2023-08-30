@@ -17,15 +17,15 @@
                 <div class="container">
                   <div class="row">
                     <div  class=" col-sm-6 col-md-6 col-lg-6">
-                      <form id='myform' method='POST' class='detail__quantity' action='#'>
+                      <div class="counter">
                         <h5 class="detail__product-quantity">Số lượng:</h5>
-                        <input type='button' value='-' class='minus'/>
-                        <input type='text' name='quantity' value='0' class='num qty' />
-                        <input type='button' value='+' class='plus'/>
-                      </form>
+                        <input type='button' value='-' class='down' onClick='decreaseCount(event, this)'/>
+                        <input type='text' id="quantity" value='1' class='num qty' disabled/>
+                        <input type='button' value='+' class='up' onClick='increaseCount(event, this)'/>
+                      </div>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6">
-                      <button class="btn detail__btn">Thêm vào giỏ hàng</button>
+                      <button class="btn detail__btn" onclick="getvalue()"  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm vào giỏ hàng</button>
                     </div>
 
                   </div>
@@ -40,17 +40,95 @@
     </div>
   </div>
 </div>
+{{!-- Modal --}}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title" id="exampleModalLabel">Bạn đã thêm <h3 class="modal__product">{{pet.name}}</h3> vào giỏ hàng</p>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table ">
+          <thead class="table-secondary">
+             <tr>
+              <td colspan="2" class="modal__title">Sản phẩm</td>
+              <td colspan="1" class="modal__title">Đơn giá</td>
+              <td colspan="1" class="modal__title">Số lượng</td>
+              <td colspan="1" class="modal__title">Thành tiền</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <img src="{{food.img}}" class="img-fluid modal__img" alt="...">
+                    </div>
+                    <div class="col-lg-9">
+                      <p class="color-theme modal__des ">{{food.name}}</p>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <p class="modal__des">Khối lượng: {{food.weigh}}</p>
+                          </div>
+
+                        </div>
+                      </div>
+                      <button class="modal__delete">
+                        <i class="ri-close-line"></i>
+                        <p>Bỏ sản phẩm</p>
+                      </button>
+
+
+                    </div>
+                  </div>
+                  
+                </div>
+                
+              </td>
+              <td colspan="1" class="color-theme">{{food.price}}</td>
+              <td colspan="1" id="modal__quantity"></td>
+              <td colspan="1" class="color-theme">{{pay 1 food.price}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <a href="/user/{{food.slug}}">
+          <button type="button"  class="btn btn-primary">Tiến hành thanh toán</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <script>
-  // Quantity
-  const plus = document.getElementById("plus"),
-        minus = document.getElementById("minus"),
-        num = document.getElementById("num");
 
-  let a = 1
+  {{!-- Count --}}
+  function increaseCount(a, b) {
+    var input = b.previousElementSibling;
+    var value = parseInt(input.value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    input.value = value;
+  }
 
-  plus.addEventListener("click", ()=>{
-    a++;
-    console.log("a");
-  })
+  function decreaseCount(a, b) {
+    var input = b.nextElementSibling;
+    var value = parseInt(input.value, 10);
+    if (value > 1) {
+      value = isNaN(value) ? 1 : value;
+      value--;
+      input.value = value;
+    }
+  }
+
+  function getvalue() {
+      let content = document.getElementById('quantity');
+      document.getElementById('modal__quantity').innerHTML = content.value; 
+  }
 </script>

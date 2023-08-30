@@ -1,25 +1,17 @@
 
-const {Pets, Foods} = require('../models/Pets')
-
+const Carts = require('../models/Carts')
 
 class User {
 
     index(req, res, next) {
-        Pets.find({})
-            .then(pets => {
-                pets = pets.map(pet => pet.toObject())
-                Foods.find({})
-                .then(foods => {
-                    foods = foods.map(food => food.toObject())
-                    res.render('home',{
-                        foods: foods,
-                        pets: pets
-                    })
+        Carts.find({})
+            .then(carts => {
+                carts = carts.map(cart => cart.toObject())
+                res.render('user/pay',{
+                    carts : carts
                 })
-                .catch(err => next(err));
-            
-            })  
-            .catch(err => next(err))     
+            })
+            .catch(err => next)
     }
 
 }
