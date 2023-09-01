@@ -1021,7 +1021,7 @@ body {
     display: flex;
     height: 100%;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
   }
   .qty {
       width: 40px;
@@ -1070,7 +1070,9 @@ body {
     font-size: 1.3rem;
     margin-top: .2rem;
   }
-
+  .form__cart{
+    width: 100%;
+  }
 
   /**
    * REUSED STYLE
@@ -1122,6 +1124,13 @@ body {
   }
   .pay__detail{
     margin: 1rem 0;
+  }
+  .cart__detail{
+    justify-content: center;
+  }
+  .btn__cart {
+    display: flex;
+    justify-content: end;
   }
   /**
    * BRAND, FOOTER

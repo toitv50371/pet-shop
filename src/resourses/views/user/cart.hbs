@@ -1,0 +1,143 @@
+<div class="container content__padding">
+    <div class="row cart__detail">
+        <div class="col-sm-8 col-md-8 col-lg-8">
+            <table class="table">
+                <h3>Giỏ hàng của bạn</h3>
+                <thead class="table-secondary">
+                    <tr>
+                    <td colspan="2" class="modal__title">Sản phẩm</td>
+                    <td colspan="1" class="modal__title">Đơn giá</td>
+                    <td colspan="1" class="modal__title">Số lượng</td>
+                    <td colspan="1" class="modal__title">Thành tiền</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each carts}}
+                    <tr>
+                    <td colspan="2">
+                        <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3">
+                            <img src="{{this.img}}" class="img-fluid modal__img" alt="...">
+                            </div>
+                            <div class="col-lg-9">
+                            <p class="color-theme modal__des ">{{this.name}}</p>
+                            <div class="container">
+                                <div class="row">
+                                <div class="col-lg-6">
+                                    <p class="modal__des">{{this.description}}</p>
+                                </div>
+
+                                </div>
+                            </div>
+                            <button class="modal__delete" data-bs-toggle="modal" data-bs-target="#delete__modal" data-id="{{this._id}}">
+                                <i class="ri-close-line"></i>
+                                <p>Bỏ sản phẩm</p>
+                            </button>
+
+
+                            </div>
+                        </div>
+                        
+                        </div>
+                        
+                    </td>
+                    <td colspan="1" class="cart__price color-theme">{{this.price}}đ</td>
+                    <td colspan="1" class="color-theme">
+                        <div class="counter">
+                            <input type='button' id="down" value='-' class='down' onClick='decreaseCount(event, this)' data-bs-target="{{this.price}}"/>
+                            <input type="text" name="quantity" value="{{this.quantity}}" class="num qty" disabled>
+                            <input type='button' id="up" value='+' class='up' onClick='increaseCount(event, this)' data-bs-target="{{this.price}}"/>
+                        </div>
+                    </td>
+                    <td colspan="1" class="color-theme cart__total-price">{{pay this.quantity this.price}}đ</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <div class="btn__cart">
+                <a href="/user/pay" class="btn">Tiến hành thanh toán</a>
+            </div>
+            
+        </div>
+    </div>
+     
+</div>
+
+{{!-- delete form hidden --}}
+<form method="POST" name="delete__form"></form>
+
+
+{{!-- confirm delete --}}
+<div id="delete__modal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xóa sản phẩm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có muốn xóa bỏ sản phẩm?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn__delete" type="button" class="btn btn-danger" data-bs-dismiss="modal">Xóa bỏ</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+  //count
+    function increaseCount(a, b) {
+        var input = b.previousElementSibling;
+        var value = parseInt(input.value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        input.value = value;
+        var total = 0
+        var priceElement = document.getElementsByClassName('cart__price')
+        var getValue = priceElement.attr("data-bs-target");
+        console.log(getValue)
+        
+    }
+
+    function decreaseCount(a, b) {
+        var input = b.nextElementSibling;
+        var value = parseInt(input.value, 10);
+        if (value > 1) {
+            value = isNaN(value) ? 1 : value;
+            value--;
+            input.value = value;
+        }
+        console.log(value)
+
+    }
+
+
+    document.addEventListener('DOMContentLoaded', function(){
+
+        var cartId
+        var deleteForm = document.forms['delete__form']
+        var deleteModal = document.getElementById('delete__modal')
+
+
+        // When dialog confirm clicked
+        
+            deleteModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget
+            cartId = button.getAttribute('data-id')
+            
+            })
+        var btnDelete = document.getElementById('btn__delete')
+        btnDelete.onclick = function(){
+            deleteForm.action = '/user/' + cartId + '?_method=DELETE'
+            deleteForm.submit()
+
+        }
+    })
+    
+
+</script>

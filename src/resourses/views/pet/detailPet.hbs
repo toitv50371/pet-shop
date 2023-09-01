@@ -2,52 +2,67 @@
   <div class="row g-0">
     <div class="col-sm-12 col-md-6 col-lg-12">
       <div class="container">
-        <div class="row detail__product">
-          <div class="col-md-3 col-lg-3 detail__product-img">
-          <img src="{{pet.img}}" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-4 col-lg-4">
-          <div class="card-body">
-            <h3 class="detail__product-title">{{pet.name}}</h3>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="sex-type" id="inlineRadio1" value="Đực" checked>
-              <label class="form-check-label detail__product-text" for="inlineRadio1">Đực</label>
+            <div class="row detail__product">
+              <div class="col-md-3 col-lg-3 detail__product-img">
+                <img src="{{pet.img}}" class="img-fluid rounded-start" alt="...">
             </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="sex-type" id="inlineRadio2" value="Cái">
-              <label class="form-check-label detail__product-text" for="inlineRadio2">Cái</label>
+            <div class="col-md-4 col-lg-4">
+                <div class="card-body">
+                    <h4 class="detail__product-title">{{pet.name}}</h4>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="sex-type" id="inlineRadio1" value="Đực" checked>
+                      <label class="form-check-label detail__product-text" for="inlineRadio1">Đực</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="sex-type" id="inlineRadio2" value="Cái">
+                      <label class="form-check-label detail__product-text" for="inlineRadio2">Cái</label>
+                    </div>
+                    
+                    <h4 class="detail__product-text">Tuổi: {{pet.age}}</h4>
+                            
+
+                    <div class="detail__cart">
+                      <h4 class="detail__product-price">Giá:{{pet.price}}đ</h4>  
+                        <form method="POST" action="/user/storeCart" id="form__detail">
+                          <input type="hidden" name="name" value="{{pet.name}}">
+                          <input type="hidden" name="description" value="{{pet.age}}">
+                          <input type="hidden" name="img" value="{{pet.img}}">
+                          <input type="hidden" name="price" value="{{pet.price}}">
+                          <input type="hidden" name="quantity" value="1">
+
+                          <button id="detail__btn" class="btn detail__btn" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm vào giỏ hàng</button>
+                        </form>
+
+                    </div>
+                    <div class="card text-dark bg-light mb-3 detail__product-description">
+                    <div class="card-header">Đặc quyền đi kèm</div>
+                      <div class="card-body">
+                        <ul>
+                          <li class="detail__product-des">Trả góp LS 0% trong 12 tháng</li>
+                          <li class="detail__product-des">Bảo hành lên tới 365 ngày.</li>
+                          <li class="detail__product-des">Bảo hiểm sức khỏe lên tới 1,000,000đ</li>
+                          <li class="detail__product-des">Miễn phí vận chuyển toàn quốc</li>
+                          <li class="detail__product-des">Giảm 500,000đ khi mua bé thứ 2.</li>
+                          <li class="detail__product-des">Giảm trọn đời 5% khi mua phụ kiện.</li>
+                        </ul>
+                      </div>
+                    </div>
+
+
+                </div>
             </div>
-            
-            <h5 class="detail__product-text">Tuổi: {{pet.age}}</h5>
-            <div class="detail__cart">
-              <h5 class="detail__product-price">Giá: {{pet.price}} đ</h5>
-              <button class="btn detail__btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm vào giỏ hàng</button>
             </div>
-            <div class="card text-dark bg-light mb-3 detail__product-description">
-            <div class="card-header">Đặc quyền đi kèm</div>
-              <div class="card-body">
-                <ul>
-                  <li class="detail__product-des">Trả góp LS 0% trong 12 tháng</li>
-                  <li class="detail__product-des">Bảo hành lên tới 365 ngày.</li>
-                  <li class="detail__product-des">Bảo hiểm sức khỏe lên tới 1,000,000đ</li>
-                  <li class="detail__product-des">Miễn phí vận chuyển toàn quốc</li>
-                  <li class="detail__product-des">Giảm 500,000đ khi mua bé thứ 2.</li>
-                  <li class="detail__product-des">Giảm trọn đời 5% khi mua phụ kiện.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
+          </ul>
+        </form>
       </div>
     </div>
   </div>
 </div>
 
+{{!-- 
+Modal --}}
 
-{{!-- Modal --}}
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -65,7 +80,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="cart">
+              <tr class="cart">
               <td colspan="2">
                 <div class="container">
                   <div class="row">
@@ -93,7 +108,6 @@
                   </div>
                   
                 </div>
-                
               </td>
               <td colspan="1" class="color-theme cart__price">{{pet.price}} đ</td>
               <td colspan="1">
@@ -116,34 +130,11 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 {{!-- Add to Cart --}}
 
 <script>
-  if (document.readyState == 'loading'){
-    document.addEventListener('DOMContentLoaded', ready)
-  }else{
-    ready()
-  }
-
-  function ready(){
-
-    let removeCartBtn = document.getElementsByClassName('modal__delete')
-    for(var i = 0; i < removeCartBtn.length; i ++){
-      var button = removeCartBtn[i]
-      button.addEventListener('click', removeCartItem)
-    }
-
-  }
-  
-  function removeCartItem(){
-    let removeCarts =  document.getElementsByClassName('cart');
-    for (var cart of removeCarts) {
-      cart.remove();
-    }
-  }
-
   function up(a, b) {
     var input = b.previousElementSibling;
     var value = parseInt(input.value, 10);
@@ -172,16 +163,8 @@
       let price = parseFloat(priceElement.innerText.replace('đ', ''))
       let quantity = quantityElement.value
       total += price * quantity
-      document.getElementsByClassName('cart__total-price')[0].innerText = total + ' đ'
-      
-      console.log('test')
-
-    
+      document.getElementsByClassName('cart__total-price')[0].innerText = total + ' đ'  
   }
-
- 
-
-  
 
 
 

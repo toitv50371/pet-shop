@@ -50,22 +50,24 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
+                        {{#each carts}}
                         <div class="container">
                             <div class="row pay__detail">
                                 <div class="col-sm-3 col-md-3 col-lg-3">
-                                    <img src="{{pet.img}}" alt="" class="pay__img">
+                                    <img src="{{this.img}}" alt="" class="pay__img">
                                 </div>
                                 <div class="col-sm-5 col-md-5 col-lg-5">
-                                    <p>{{pet.name}}</p>
+                                    <p>{{this.name}}</p>
                                 </div>
                                 <div class="col-sm-2 col-md-2 col-lg-2">
-                                    <p>1</p>
+                                    <p>{{this.quantity}}</p>
                                 </div>
                                 <div class="col-sm-2 col-md-2 col-lg-2">
-                                    <p>{{pet.price}}</p>
+                                    <p>{{pay this.price this.quantity}}</p>
                                 </div>
                             </div>
                         </div>
+                        {{/each}}
 
                     </li>
                     <li class="list-group-item">
@@ -90,7 +92,7 @@
                                     <p>Tạm tính</p>
                                 </div>
                                 <div class="col-sm-4 col-md-4 col-lg-4 pay__right">
-                                    <p>{{ pay 1 pet.price }}</p>
+                                    <p></p>
                                 </div>
                             </div>
                         </div>
@@ -112,14 +114,14 @@
                             <p>Tổng cộng</p>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4 pay__right">
-                            <p>{{sum pet.price 0}}</p>
+                            <p>{{sum carts.quantity cart.price}}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-8 col-md-8 col-lg-8">
                             <p>Quay về giỏ hàng</p>
                         </div>
-                        <div class="col-sm-4 col-md-4 col-lg-4 pay__right">
+                        <div class="col-sm-4 col-md-4 col-lg-4 pay__right">     
                             <button class="pay__btn btn-primary">Đặt hàng</button>
                         </div>
                     </div>
@@ -129,3 +131,7 @@
     </div>
 
 </div>
+
+<script>
+    
+</script>

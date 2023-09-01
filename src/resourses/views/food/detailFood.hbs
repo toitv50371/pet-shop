@@ -11,26 +11,33 @@
               <h3 class="detail__product-title">{{food.name}}</h3>
               <h5 class="detail__product-text">Thương hiệu: {{food.brand}}</h5>
               <h5 class="detail__product-price">{{food.price}}đ</h5>
-              <h5 class="detail__product-weigh">Khối lượng: {{food.weigh}}g</h5>
+              <h5 class="detail__product-weigh">Khối lượng: {{food.weigh}}</h5>
               <hr>
               <div class="detail__cart">
-                <div class="container">
-                  <div class="row">
-                    <div  class=" col-sm-6 col-md-6 col-lg-6">
-                      <div class="counter">
-                        <h5 class="detail__product-quantity">Số lượng:</h5>
-                        <input type='button' value='-' class='down' onClick='decreaseCount(event, this)'/>
-                        <input type='text' id="quantity" value='1' class='num qty' disabled/>
-                        <input type='button' value='+' class='up' onClick='increaseCount(event, this)'/>
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6">
-                      <button class="btn detail__btn" onclick="getvalue()"  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm vào giỏ hàng</button>
+                <form method="POST" action="/user/storeCart" class="form__cart">
+                  <div class="container">
+                    <div class="row">
+                        <div  class=" col-sm-6 col-md-6 col-lg-6">
+                          <div class="counter">
+                            <h5 class="detail__product-quantity">Số lượng:</h5>
+                            <input type='button' value='-' class='down' onClick='decreaseCount(event, this)'/>
+                            <input type="text" name="quantity" value="1" class="num qty">
+                            <input type='button' value='+' class='up' onClick='increaseCount(event, this)'/>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <input type="hidden" name="name" value="{{food.name}}">
+                            <input type="hidden" name="description" value="{{food.weigh}}">
+                            <input type="hidden" name="img" value="{{food.img}}">
+                            <input type="hidden" name="price" value="{{food.price}}">    
+                            <button id="detail__btn" class="btn detail__btn" type="submit">Thêm vào giỏ hàng</button>
+                          
+                        </div>
+
                     </div>
 
                   </div>
-
-                </div>
+                </form>
 
               </div>
 
@@ -41,7 +48,7 @@
   </div>
 </div>
 {{!-- Modal --}}
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -102,7 +109,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 
 
@@ -126,9 +133,9 @@
       input.value = value;
     }
   }
-
   function getvalue() {
+    console.log('test')
       let content = document.getElementById('quantity');
-      document.getElementById('modal__quantity').innerHTML = content.value; 
+      document.getElementById('quantity__form').innerText = content.value; 
   }
 </script>

@@ -1,5 +1,6 @@
 
 const {Foods} = require('../models/Pets')
+const Carts = require('../models/Carts')
 
 
 class FoodController {
@@ -13,6 +14,17 @@ class FoodController {
                 })
             })
             .catch(err => next(err))
+
+        // const btn = document.getElementById('btn__food')
+        // btn.addEventListener('click', function clickBtn(){
+        //     const cart = new Carts(req.body)
+        //     cart.save()
+        //     .then(() => res.redirect('detailFood'))
+
+        //     })
+        //     .catch(err => next(err))
+
+        
     }
     // create food
     create(req, res, next) {
@@ -25,5 +37,6 @@ class FoodController {
             .then(() => res.redirect('create'))
             .catch(err => next(err))
     }
+
 }
 module.exports = new FoodController()

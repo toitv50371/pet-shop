@@ -1,11 +1,12 @@
 
 const {Pets, Foods} = require('../models/Pets')
+const Carts = require('../models/Carts')
 
 
 class ProductController {
 
     index(req, res, next) {
-        // dog
+        // pet
         Pets.findOne({slug:req.params.slug}).lean()
             .then(pet => {
                 res.render('pet/detailPet',{
@@ -23,5 +24,7 @@ class ProductController {
             .then(() => res.redirect('create'))
             .catch(err => next(err))
     }
+
+
 }
 module.exports = new ProductController()
