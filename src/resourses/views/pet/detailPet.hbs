@@ -9,23 +9,26 @@
             <div class="col-md-4 col-lg-4">
                 <div class="card-body">
                     <h4 class="detail__product-title">{{pet.name}}</h4>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="sex-type" id="inlineRadio1" value="Đực" checked>
-                      <label class="form-check-label detail__product-text" for="inlineRadio1">Đực</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="sex-type" id="inlineRadio2" value="Cái">
-                      <label class="form-check-label detail__product-text" for="inlineRadio2">Cái</label>
+                    <div id="gender">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Đực" checked>
+                        <label class="form-check-label detail__product-text" for="inlineRadio1">Đực</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Cái">
+                        <label class="form-check-label detail__product-text" for="inlineRadio2">Cái</label>
+                      </div>
                     </div>
                     
                     <h4 class="detail__product-text">Tuổi: {{pet.age}}</h4>
                             
 
                     <div class="detail__cart">
-                      <h4 class="detail__product-price">Giá:{{pet.price}}đ</h4>  
-                        <form method="POST" action="/user/storeCart" id="form__detail">
+                      <h4 class="detail__product-price">Giá:{{ pet.price}}đ</h4>  
+                        <form method="POST" action="/checkout/storeCart" id="form__detail">
                           <input type="hidden" name="name" value="{{pet.name}}">
-                          <input type="hidden" name="description" value="{{pet.age}}">
+                          <input type="hidden" name="description" value="Tuổi: {{pet.age}}">
+                          <input id="description2" type="hidden" name="description2" value="Giống: Đực">
                           <input type="hidden" name="img" value="{{pet.img}}">
                           <input type="hidden" name="price" value="{{pet.price}}">
                           <input type="hidden" name="quantity" value="1">
@@ -59,82 +62,28 @@
   </div>
 </div>
 
-{{!-- 
-Modal --}}
-
-{{!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <p class="modal-title" id="exampleModalLabel">Bạn đã thêm <h3 class="modal__product">{{pet.name}}</h3> vào giỏ hàng</p>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <table class="table ">
-          <thead class="table-secondary">
-             <tr>
-              <td colspan="2" class="modal__title">Sản phẩm</td>
-              <td colspan="1" class="modal__title">Đơn giá</td>
-              <td colspan="1" class="modal__title">Số lượng</td>
-              <td colspan="1" class="modal__title">Thành tiền</td>
-            </tr>
-          </thead>
-          <tbody>
-              <tr class="cart">
-              <td colspan="2">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-lg-3">
-                      <img src="{{pet.img}}" class="img-fluid modal__img" alt="...">
-                    </div>
-                    <div class="col-lg-9">
-                      <p class="color-theme modal__des">{{pet.name}}</p>
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-lg-6">
-                            <p class="modal__des">Tuổi: {{pet.age}}</p>
-                          </div>
-                          <div class="col-lg-6">
-                            <p id="modal__sex" class="modal__des"></p>
-                          </div>
-
-                        </div>
-                      </div>
-                      <button class="modal__delete">
-                        <i class="ri-close-line"></i>
-                        <p>Bỏ sản phẩm</p>
-                      </button>
-                    </div>
-                  </div>
-                  
-                </div>
-              </td>
-              <td colspan="1" class="color-theme cart__price">{{pet.price}} đ</td>
-              <td colspan="1">
-                  <div class="counter">
-                    <input type='button' value='-' class='down' onClick='down(event, this)'/>
-                    <input type='text' id="quantity" value='1' class='num qty' disabled/>
-                    <input type='button' value='+' class='up' onClick='up(event, this)'/>
-                  </div>
-
-              </td>
-              <td colspan="1" class="color-theme cart__total-price">{{pet.price}} đ</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <a href="/user/{{pet.slug}}">
-          <button type="button"  class="btn btn-primary">Tiến hành thanh toán</button>
-        </a>
-      </div>
-    </div>
-  </div>
-</div> --}}
-
 {{!-- Add to Cart --}}
 
+
 <script>
+
+  //get gender pet
+  var gender = document.getElementById('gender')
+  gender.addEventListener('click', function(){
+    var rates = document.getElementsByName('gender')
+    var rate_value;
+    for(var i = 0; i < rates.length; i++){
+        if(rates[i].checked){
+            rate_value = rates[i].value;
+        }
+    }
+    var des2 = document.getElementById('description2')
+    setValue = des2.setAttribute('value','Giống: ' + rate_value)
+      
+  })
+
+
+
   function up(a, b) {
     var input = b.previousElementSibling;
     var value = parseInt(input.value, 10);

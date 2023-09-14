@@ -338,6 +338,11 @@ body {
   margin-right:1rem;
   color: rgb(241, 237, 237) ;
 }
+/* User */
+.padding__register{
+  padding-top: 4rem !important;
+}
+
 /* FORM CONTROL */
 .form-control {
   padding: .5rem 0;
@@ -921,6 +926,7 @@ body {
     margin: 15rem 0;
     align-items: center;
   }
+  
 
   /* carousel */
   .section__carousel {
@@ -1042,9 +1048,15 @@ body {
   .modal__img{
     max-width: 5rem;
   }
-  .modal__des{
+  .modal__pro{
     margin: 0;
     font-size: 1.3rem;
+    color: var(--black);
+    font-weight: 500;
+    text-align: start;
+  }
+  .modal__des{
+    font-size: 1rem;
     color: var(--black);
     font-weight: 500;
     text-align: start;
@@ -1125,8 +1137,31 @@ body {
   .pay__detail{
     margin: 1rem 0;
   }
+  .pay__name{
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+  }
+  .pay__qty, .pay__price-prod{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+  }
+
+
+
   .cart__detail{
     justify-content: center;
+  }
+  .cart__detail-total{
+    justify-content: space-between;
+  }
+  .cart__total{
+    display: inline-flex;
+  }
+  .cart__btn{
+    font-size: 1.3rem;
   }
   .btn__cart {
     display: flex;

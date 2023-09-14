@@ -1,25 +1,27 @@
 
 const {Pets, Foods} = require('../models/Pets')
+const Carts = require('../models/Carts')
+const User = require('../models/Users')
 
 
 class SiteController {
 
     index(req, res, next) {
-        Pets.find({})
-            .then(pets => {
-                pets = pets.map(pet => pet.toObject())
-                Foods.find({})
-                .then(foods => {
-                    foods = foods.map(food => food.toObject())
-                    res.render('home',{
-                        foods: foods,
-                        pets: pets
-                    })
+        Promise.all([Pets.find({}), Foods.find({}), Carts.countDocuments()])
+            .then(([pets, foods, counts]) =>
+                res.render('home',{
+                    pets: pets.map(pet => pet.toObject()),
+                    foods: foods.map(food => food.toObject()),
+                    counts: counts                
                 })
-                .catch(err => next(err));
-            
-            })  
-            .catch(err => next(err))     
+            )
+            .catch(next)    
+        User.findById('650138092930a6fd56ac7fbd')
+            .then(userInDB => {
+                res.user = userInDB
+
+            })
+            .catch(next)
     }
 
 }

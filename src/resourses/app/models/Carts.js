@@ -9,12 +9,16 @@ mongoose.plugin(slug);
 const Carts = new Schema({
     name: {type: String},
     description: {type: String},
+    description2: {type: String},
     price: {type: Number},
     quantity: {type: Number},
     img: {type: String},
     slug: { type: String, slug: "name", unique: true }
     }
+    
+    
 )
+
 
 
 

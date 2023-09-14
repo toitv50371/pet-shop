@@ -5,15 +5,18 @@ const Carts = require('../models/Carts')
 
 class ProductController {
 
+
     index(req, res, next) {
-        // pet
-        Pets.findOne({slug:req.params.slug}).lean()
-            .then(pet => {
+
+        Promise.all([Pets.findOne({slug:req.params.slug}).lean(), Carts.countDocuments()])
+            .then(([pet, counts]) => {
                 res.render('pet/detailPet',{
-                    pet: pet
+                    pet: pet,
+                    counts: counts
                 })
             })
-            .catch(err => next(err))
+            .catch(next)
+       
     }
     create(req, res, next) {
         res.render('pet/createPet')

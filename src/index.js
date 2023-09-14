@@ -38,7 +38,10 @@ app.engine('hbs', handlebars.engine({
         },
         sum(a, b) {
             return a + b
-        }
+        },
+        // formatCurrecy(value){
+        //     return value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+        // }
 
     }
 }) )

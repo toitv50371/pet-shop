@@ -3,10 +3,8 @@ const router = express.Router()
 
 const userController = require('../app/controllers/UserController')
 
-router.post('/storeCart', userController.storeCart)
-router.delete('/:id', userController.delete)
-router.get('/pay', userController.pay)
-router.get('/cart', userController.index)
-
+router.get('/login', userController.login)
+router.get('/register', userController.register)
+router.post('/registerUser', userController.registerUser)
 
 module.exports = router

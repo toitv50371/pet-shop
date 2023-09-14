@@ -14,7 +14,7 @@
               <h5 class="detail__product-weigh">Khối lượng: {{food.weigh}}</h5>
               <hr>
               <div class="detail__cart">
-                <form method="POST" action="/user/storeCart" class="form__cart">
+                <form method="POST" action="/checkout/storeCart" class="form__cart">
                   <div class="container">
                     <div class="row">
                         <div  class=" col-sm-6 col-md-6 col-lg-6">
@@ -27,7 +27,8 @@
                         </div>
                         <div class="col-sm-6 col-md-6 col-lg-6">
                             <input type="hidden" name="name" value="{{food.name}}">
-                            <input type="hidden" name="description" value="{{food.weigh}}">
+                            <input type="hidden" name="description" value="Khối lượng: {{food.weigh}}">
+                            <input type="hidden" name="description2" value="Nhãn hiệu: {{food.brand}}">
                             <input type="hidden" name="img" value="{{food.img}}">
                             <input type="hidden" name="price" value="{{food.price}}">    
                             <button id="detail__btn" class="btn detail__btn" type="submit">Thêm vào giỏ hàng</button>
@@ -132,10 +133,5 @@
       value--;
       input.value = value;
     }
-  }
-  function getvalue() {
-    console.log('test')
-      let content = document.getElementById('quantity');
-      document.getElementById('quantity__form').innerText = content.value; 
   }
 </script>

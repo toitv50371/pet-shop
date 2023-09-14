@@ -6,23 +6,15 @@ const Carts = require('../models/Carts')
 class FoodController {
 
     index(req, res, next) {
-        // food
-        Foods.findOne({slug:req.params.slug}).lean()
-            .then(food => {
+
+        Promise.all([Foods.findOne({slug:req.params.slug}).lean(), Carts.countDocuments()])
+            .then(([food, counts]) => {
                 res.render('food/detailFood',{
-                    food: food
+                    food: food,
+                    counts: counts
                 })
             })
-            .catch(err => next(err))
-
-        // const btn = document.getElementById('btn__food')
-        // btn.addEventListener('click', function clickBtn(){
-        //     const cart = new Carts(req.body)
-        //     cart.save()
-        //     .then(() => res.redirect('detailFood'))
-
-        //     })
-        //     .catch(err => next(err))
+            .catch(next)
 
         
     }
