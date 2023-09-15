@@ -24,7 +24,7 @@
             </li>
           </ul>
           <form class="header__account text-light">
-            <div class="header__user">
+            {{!-- <div class="header__user">
               <a href="" class="header__account-icon">
                 <i class="ri-user-3-line"></i>
               </a>
@@ -39,14 +39,14 @@
               </div>
 
               
-            </div>
+            </div> --}}
             
             <div class="header__user">
               <a href="/checkout/cart" class="header__account-icon">
                 <i class="ri-shopping-bag-line"></i>
               </a>
               <div class="header__user-detail">
-                <a href="/checkout/cart"><h4>Giỏ hàng</h4></a>
+                <a href="/checkout/cart"><h5 class="header__user-cart">Giỏ hàng</h5></a>
                 <div class="header__user-option">
                   <a href="/checkout/cart" class="cart-quantity">{{counts}} sản phẩm</a>
                 </div>

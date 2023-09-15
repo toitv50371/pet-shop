@@ -11,6 +11,10 @@ const PetsSchema = new Schema({
     price: {type: Number, },
     type: {type: String},
     img: {type: String},
+    img1: {type: String},
+    img2: {type: String},
+    img3: {type: String},
+    img4: {type: String},
     slug: { type: String, slug: "name", unique: true }
     }
 )

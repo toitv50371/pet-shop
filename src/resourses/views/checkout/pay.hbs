@@ -4,31 +4,31 @@
             <div class="col-sm-4 col-md-4 col-lg-4">
                     <p class="detail__product-title">Thông tin mua hàng: </p>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="">
+                        <input type="email" class="form-control form-control-pay" id="floatingInput" placeholder="" required>
                         <label for="floatingInput">Email</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="" required>
                         <label for="floatingInput">Họ và tên</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="" required>
                         <label for="floatingInput">Số điện thoại</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="" required>
                         <label for="floatingInput">Địa chỉ</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="" required>
                         <label for="floatingInput">Thành phố</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="" required>
                         <label for="floatingInput">Quận huyện</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="" required>
                         <label for="floatingInput">Phường xã</label>
                     </div>
                     <div class="form-check mb-3">
@@ -63,7 +63,7 @@
                                         <p>{{this.quantity}}</p>
                                     </div>
                                     <div class="col-sm-2 col-md-2 col-lg-2 pay__price-prod">
-                                        <p class="pay__price color-theme" data-bs-target="{{pay this.price this.quantity}}" >{{pay this.price this.quantity}}đ</p>
+                                        <p class="pay__price color-theme" data-bs-target="{{pay this.price this.quantity}}" >{{formatCurrecy (pay this.price this.quantity)}}đ</p>
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +141,11 @@
         var priceProduct = price.getAttribute('data-bs-target')
         sum += parseInt(priceProduct)
     }
-    console.log(sum)
-    payTotal.innerHTML = sum + 'đ'
+    sum = formatDollar(sum)
+    payTotal.innerHTML = sum
+
+    function formatDollar(num) {
+        return num.toLocaleString('vi-VN', {style : 'currency', currency : 'VND'});
+    }
     
 </script>

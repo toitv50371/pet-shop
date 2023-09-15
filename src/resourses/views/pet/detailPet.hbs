@@ -1,11 +1,58 @@
 <div class="container content__padding">
   <div class="row g-0">
-    <div class="col-sm-12 col-md-6 col-lg-12">
+    <div class="col-sm-12 col-md-12 col-lg-12">
       <div class="container">
             <div class="row detail__product">
-              <div class="col-md-3 col-lg-3 detail__product-img">
-                <img src="{{pet.img}}" class="img-fluid rounded-start" alt="...">
+              <div class="col-md-4 col-lg-4 detail__product-img">
+                <div class = "product-imgs">
+              <div class = "img-display">
+                <div class = "img-showcase">
+                  <img src = "{{pet.img1}}" alt = "shoe image" class="img-fluid">
+                  <img src = "{{pet.img2}}" alt = "shoe image" class="img-fluid">
+                  <img src = "{{pet.img3}}" alt = "shoe image" class="img-fluid">
+                  <img src = "{{pet.img4}}" alt = "shoe image" class="img-fluid">
+                </div>
+              </div>
+              <div class = "img-select">
+                <div class="container">
+                  <div class="row">
+                  <div class="col-sm-3 col-md-3 col-lg-3">
+                    <div class = "img-item">
+                      <a href = "#" data-id = "1">
+                        <img src = "{{pet.img1}}" alt = "shoe image" class="img-fluid">
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-3 col-md-3 col-lg-3">
+                    <div class = "img-item">
+                      <a href = "#" data-id = "2">
+                        <img src = "{{pet.img2}}" alt = "shoe image" class="img-fluid">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 col-md-3 col-lg-3">
+                    <div class = "img-item">
+                      <a href = "#" data-id = "3">
+                        <img src = "{{pet.img3}}" alt = "shoe image" class="img-fluid">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 col-md-3 col-lg-3">
+                    <div class = "img-item">
+                      <a href = "#" data-id = "4">
+                        <img src = "{{pet.img4}}" alt = "shoe image" class="img-fluid">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                
+                
+              </div>
             </div>
+              </div>
             <div class="col-md-4 col-lg-4">
                 <div class="card-body">
                     <h4 class="detail__product-title">{{pet.name}}</h4>
@@ -24,7 +71,7 @@
                             
 
                     <div class="detail__cart">
-                      <h4 class="detail__product-price">Giá:{{ pet.price}}đ</h4>  
+                      <h4 class="detail__product-price">Giá:{{formatCurrecy pet.price}}đ</h4>  
                         <form method="POST" action="/checkout/storeCart" id="form__detail">
                           <input type="hidden" name="name" value="{{pet.name}}">
                           <input type="hidden" name="description" value="Tuổi: {{pet.age}}">
@@ -56,7 +103,6 @@
             </div>
             </div>
           </ul>
-        </form>
       </div>
     </div>
   </div>
@@ -66,6 +112,28 @@
 
 
 <script>
+
+  //slide
+    const imgs = document.querySelectorAll('.img-select a');
+    const imgBtns = [...imgs];
+    let imgId = 1;
+
+    imgBtns.forEach((imgItem) => {
+        imgItem.addEventListener('click', (event) => {
+            event.preventDefault();
+            imgId = imgItem.dataset.id;
+            slideImage();
+        });
+    });
+
+    function slideImage(){
+        const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+
+        document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+    }
+
+    window.addEventListener('resize', slideImage);
+  
 
   //get gender pet
   var gender = document.getElementById('gender')

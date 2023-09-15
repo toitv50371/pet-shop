@@ -1,3 +1,4 @@
+
 <div class="container content__padding">
     <div class="row cart__detail">
         <div class="col-sm-8 col-md-8 col-lg-8">
@@ -45,15 +46,15 @@
                         </div>
                         
                     </td>
-                    <td colspan="1" class="cart__price color-theme" data-bs-target="{{this.price}}">{{this.price}}đ</td>
+                    <td colspan="1" id="cart__price" class="cart__price color-theme">{{ formatCurrecy this.price}}đ</td>
                     <td colspan="1" class="color-theme">
                         <div id="count" class="counter">
-                            <input type='button' id="down" value='-' class='down' onClick='decreaseCount(event, this)'/>
+                            <input type='button' id="down" value='-' class='down item' onClick='decreaseCount(event, this)'/>
                             <input type="text" name="quantity" value="{{this.quantity}}" class="num qty" disabled>
-                            <input type='button' id="up" value='+' class='up' onClick='increaseCount(event, this)'/>
+                            <input type='button' id="up" value='+' class='up item' onClick='increaseCount(event, this)'/>
                         </div>
                     </td>
-                    <td colspan="1" id="cart__total-price" class="cart__total-price color-theme" data-bs-target="{{pay this.quantity this.price}}">{{pay this.quantity this.price}}đ</td>
+                    <td colspan="1" id="cart__total-price" class="cart__total-price color-theme" data-bs-target="{{ pay this.quantity this.price}}">{{formatCurrecy (pay this.quantity this.price)}}đ</td>
                     </tr>
                     {{/each}}
                 </tbody>
@@ -111,26 +112,32 @@
         var priceProduct = price.getAttribute('data-bs-target')
         total += parseInt(priceProduct)
     }
-
-    cartTotal.innerHTML = total + 'đ'
+    total = formatDollar(total)
     
+    cartTotal.innerHTML = total 
 
-  //count
+    //format price
+    function formatDollar(num) {
+        return num.toLocaleString('vi-VN', {style : 'currency', currency : 'VND'});
+    }
+    //count
     function increaseCount(a, b) {
         var input = b.previousElementSibling;
         var value = parseInt(input.value, 10);
         value = isNaN(value) ? 0 : value;
         value++;
-        input.value = value;
-        var cartPrice = document.getElementsByClassName('cart__price')
-        let sum = 0
-        for(var price of cartPrice){
-            var priceProduct = price.getAttribute('data-bs-target')
-            sum = parseInt(priceProduct) * value
-            console.log(sum)
-        }
-        priceEle.innerHTML = sum[0]
+        input.value = value;   
+        //change value when click
+        var attr
+        var cartPrice = document.querySelectorAll('.cart__price')
+        cartPrice.forEach(function(link){
+            link.addEventListener("click",function(e){
+                attr = e.currentTarget.value
+                console.log(attr)
+            });
+        });
         
+       
     }
 
     function decreaseCount(a, b) {
@@ -156,18 +163,18 @@
         // When dialog confirm clicked
         
         deleteModal.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget
-        cartId = button.getAttribute('data-id')
-        console.log(cartId)
-        
-        })
+            var button = event.relatedTarget
+            cartId = button.getAttribute('data-id')
+            console.log(cartId)
+            
+            })
 
-        var btnDelete = document.getElementById('btn__delete')
-        btnDelete.onclick = function(){
-            deleteForm.action = '/checkout/' + cartId + '?_method=DELETE'
-            deleteForm.submit()
+            var btnDelete = document.getElementById('btn__delete')
+            btnDelete.onclick = function(){
+                deleteForm.action = '/checkout/' + cartId + '?_method=DELETE'
+                deleteForm.submit()
 
-        }
+            }
     })
     
 
