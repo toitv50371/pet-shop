@@ -5,6 +5,12 @@ const Carts = require('../models/Carts')
 
 class FoodController {
 
+    foodDog(req, res, next){
+        res.render('food/foodDog')
+    }
+    foodCat(req, res, next){
+        res.render('food/foodCat')
+    }
     index(req, res, next) {
 
         Promise.all([Foods.findOne({slug:req.params.slug}).lean(), Carts.countDocuments()])

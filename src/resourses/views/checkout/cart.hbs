@@ -1,72 +1,107 @@
 
 <div class="container content__padding">
-    <div class="row cart__detail">
-        <div class="col-sm-8 col-md-8 col-lg-8">
-            <table class="table">
-                <h3>Giỏ hàng của bạn ({{counts}})</h3>
-                <thead class="table-secondary">
-                    <tr>
-                    <td colspan="2" class="modal__title">Sản phẩm</td>
-                    <td colspan="1" class="modal__title">Đơn giá</td>
-                    <td colspan="1" class="modal__title">Số lượng</td>
-                    <td colspan="1" class="modal__title">Thành tiền</td>
-                    </tr>
-                </thead>
-                <tbody>
+    <div class="row cart__detail ">
+        <div class="col-sm-12 col-md-12 col-lg-8">
+            <h3>Giỏ hàng của bạn ({{counts}})</h3>
+            <div class="container">
+                <div class="row cart__title">
+                    <div class="col-sm-5 col-md-5 col-lg-5">
+                        <p>Sản phẩm</p>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <p>Đơn giá</p>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <p>Số Lượng</p>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <p>Thành tiền</p>
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-lg-1">
+                        <p></p>
+                    </div>
+
+                </div>
+                <div class="block"></div>
+
+            </div>
+            
+            <div class="container">
+                <div class="row cart__product">
                     {{#each carts}}
-                    <tr>
-                    <td colspan="2">
+                    <div class="col-sm-12 col-md-5 col-lg-5">
                         <div class="container">
                         <div class="row">
-                            <div class="col-lg-3">
-                            <img src="{{this.img}}" class="img-fluid modal__img" alt="...">
+                        
+                        <div class="col-sm-3 col-md-4 col-lg-3">
+                        <img src="{{this.img}}" class="img-fluid modal__img" alt="...">
+                        </div>
+                        <div class="col-sm-9 col-md-8 col-lg-9">
+                        <p class="color-theme modal__pro">{{this.name}}</p>
+                        <div class="container">
+                            <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <p class="modal__des">{{this.description}}</p>
                             </div>
-                            <div class="col-lg-9">
-                            <p class="color-theme modal__pro">{{this.name}}</p>
-                            <div class="container">
-                                <div class="row">
-                                <div class="col-lg-6">
-                                    <p class="modal__des">{{this.description}}</p>
-                                </div>
-                                <div class="col-lg-6">
-                                    <p class="modal__des">{{this.description2}}</p>
-                                </div>
-
-                                </div>
+                            <div class="col-sm-6 col-md-6  col-lg-6">
+                                <p class="modal__des">{{this.description2}}</p>
                             </div>
-                            <button class="modal__delete" data-bs-toggle="modal" data-bs-target="#delete__modal" data-id="{{this._id}}">
-                                <i class="ri-close-line"></i>
-                                <p>Bỏ sản phẩm</p>
-                            </button>
-
 
                             </div>
                         </div>
-                        
                         </div>
                         
-                    </td>
-                    <td colspan="1" id="cart__price" class="cart__price color-theme">{{ formatCurrecy this.price}}đ</td>
-                    <td colspan="1" class="color-theme">
+                    </div>
+                
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 col-lg-2">
+                        <div id="cart__price">
+                            {{ formatCurrecy this.price}}đ
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 col-lg-2">
                         <div id="count" class="counter">
                             <input type='button' id="down" value='-' class='down item' onClick='decreaseCount(event, this)'/>
                             <input type="text" name="quantity" value="{{this.quantity}}" class="num qty" disabled>
                             <input type='button' id="up" value='+' class='up item' onClick='increaseCount(event, this)'/>
                         </div>
-                    </td>
-                    <td colspan="1" id="cart__total-price" class="cart__total-price color-theme" data-bs-target="{{ pay this.quantity this.price}}">{{formatCurrecy (pay this.quantity this.price)}}đ</td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-            <div class="container">
-                <div class="row cart__detail-total">
-                    <div class="col-sm-4 col-md-4 col-lg-4 cart__total">
-                        <h3>Tổng tiền: </h3>
-                        <h3 id="cart__total" class="color-theme"></h3>
                     </div>
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                        <div class="btn__cart">
+                    <div class="col-sm-12 col-md-2 col-lg-2">
+                        <div id="cart__total-price" class="cart__total-price" data-bs-target="{{ pay this.quantity this.price}}">
+                            {{formatCurrecy (pay this.quantity this.price)}}đ
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-1 col-lg-1">
+                        <button class="modal__delete" data-bs-toggle="modal" data-bs-target="#delete__modal" data-id="{{this._id}}">
+                            <i class="ri-close-line"></i>
+                        </button>
+                    </div>
+                    <div class="block__product"></div>
+                    {{/each }}
+                </div>
+               
+
+            </div>
+
+               
+
+
+
+
+
+            <div class="container">
+                <div class="row cart__checkout">
+                    <div class="col-sm-5 col-md-4 col-lg-4 ">
+                        <div class="cart__total">
+                            <h4>Tổng tiền: </h4>
+                            <h4 id="cart__total" class="color-theme"></h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-md-4 col-lg-4">
+                        <div class="cart__checkout-btn">
+
                             <a href="/checkout/pay" class="btn cart__btn">Tiến hành thanh toán</a>
                         </div>
                     </div>
@@ -113,6 +148,7 @@
         total += parseInt(priceProduct)
     }
     total = formatDollar(total)
+    console.log(total)
     
     cartTotal.innerHTML = total 
 

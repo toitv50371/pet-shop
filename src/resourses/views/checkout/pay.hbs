@@ -1,34 +1,30 @@
 <div class="container content__padding-pay">
     <form method="GET" action="/checkout/successfully" >
         <div class="row pay__content">
-            <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="col-sm-12 col-md-5 col-lg-4">
                     <p class="detail__product-title">Thông tin mua hàng: </p>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control form-control-pay" id="floatingInput" placeholder="" required>
-                        <label for="floatingInput">Email</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="" required>
+                        <input type="text" class="form-control form-control-pay " id="floatingInput" placeholder="" required>
                         <label for="floatingInput">Họ và tên</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="" required>
+                        <input type="number" class="form-control form-control-pay" id="floatingInput" placeholder="" required>
                         <label for="floatingInput">Số điện thoại</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="" required>
+                        <input type="text" class="form-control form-control-pay" id="floatingInput" placeholder="" required>
                         <label for="floatingInput">Địa chỉ</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="" required>
+                        <input type="text" class="form-control form-control-pay" id="floatingInput" placeholder="" required>
                         <label for="floatingInput">Thành phố</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="" required>
+                        <input type="text" class="form-control form-control-pay" id="floatingInput" placeholder="" required>
                         <label for="floatingInput">Quận huyện</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="" required>
+                        <input type="text" class="form-control form-control-pay" id="floatingInput" placeholder="" required>
                         <label for="floatingInput">Phường xã</label>
                     </div>
                     <div class="form-check mb-3">
@@ -38,16 +34,14 @@
                         </label>
                     </div>
                     <div class="form-floating">
-                        <textarea class="form-control form__textarea" placeholder="" id="floatingTextarea"></textarea>
+                        <textarea class="form-control form__textarea form-control-pay" placeholder="" id="floatingTextarea"></textarea>
                         <label for="floatingTextarea">Ghi chú</label>
                     </div>
                 
             </div>
-            <div class="col-sm-5 col-md-5 col-lg-5" style="align-self: center">
+            <div class="col-sm-12 col-md-7 col-lg-5" >
+                <p class="detail__product-title">Đơn hàng:</p>
                 <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Đơn hàng</h5>
-                    </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             {{#each carts}}
@@ -56,14 +50,17 @@
                                     <div class="col-sm-2 col-md-2 col-lg-2">
                                         <img src="{{this.img}}" alt="" class="pay__img">
                                     </div>
-                                    <div class="col-sm-6 col-md-6 col-lg-6 pay__name">
+                                    <div class="col-sm-4 col-md-4 col-lg-4 pay__name">
                                         <p>{{this.name}}</p>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2 col-lg-2 pay__description">
+                                        <p>{{this.description}}</p>
                                     </div>
                                     <div class="col-sm-2 col-md-2 col-lg-2 pay__qty">
                                         <p>{{this.quantity}}</p>
                                     </div>
                                     <div class="col-sm-2 col-md-2 col-lg-2 pay__price-prod">
-                                        <p class="pay__price color-theme" data-bs-target="{{pay this.price this.quantity}}" >{{formatCurrecy (pay this.price this.quantity)}}đ</p>
+                                        <p class="pay__price" data-bs-target="{{pay this.price this.quantity}}" >{{formatCurrecy (pay this.price this.quantity)}}đ</p>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +72,7 @@
                                 <div class="row pay__gg">
                                     <div class="col-sm-8 col-md-8 col-lg-8">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="floatingInput" placeholder="Mã giảm giá">
+                                            <input type="text" class="form-control form-control-pay" id="floatingInput" placeholder="Mã giảm giá">
                                             <label for="floatingInput">Mã giảm giá</label>
                                         </div>
                                     </div>
@@ -92,7 +89,7 @@
                                         <p>Tạm tính</p>
                                     </div>
                                     <div class="col-sm-4 col-md-4 col-lg-4 pay__right">
-                                        <p></p>
+                                        <p id="current__total" ></p>
                                     </div>
                                 </div>
                             </div>
@@ -108,26 +105,31 @@
                             </div>
                         </li>
                     </ul>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-8 col-md-8 col-lg-8 ">
-                                <p>Tổng cộng</p>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 pay__right">
-                                <p id="pay__total" class="color-theme"></p>
-                            </div>
+                </div>
+                <div class="container">
+                    <div class="row check__out">
+                        <div class="col-sm-8 col-md-8 col-lg-8 ">
+                            <p>Tổng cộng</p>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-8 col-md-8 col-lg-8">
-                                <a href="/checkout/cart">Quay về giỏ hàng</a>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 pay__right">     
-                                <button type="submit" class="pay__btn btn-primary">Đặt hàng</button>
-                            </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 pay__right">
+                            <p id="pay__total" class="color-theme"></p>
+                        </div>
+
+                        <div class="col-sm-8 col-md-8 col-lg-8">
+                                
+                            <a href="/checkout/cart" class="color-theme"> <i class="ri-arrow-left-s-line"></i>Quay về giỏ hàng</a>
+                            
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 pay__right">     
+                            <button type="submit" class="pay__btn btn-primary">Đặt hàng</button>
                         </div>
                     </div>
+
                 </div>
+                
             </div>
+                
+
         </div>
     </form>
 
@@ -136,6 +138,7 @@
 <script>
     var priceEle = document.getElementsByClassName('pay__price')
     var payTotal = document.getElementById('pay__total')
+    var currentTotal = document.getElementById('current__total')
     var sum = 0
     for (var price of priceEle){
         var priceProduct = price.getAttribute('data-bs-target')
@@ -143,6 +146,7 @@
     }
     sum = formatDollar(sum)
     payTotal.innerHTML = sum
+    currentTotal.innerHTML = sum
 
     function formatDollar(num) {
         return num.toLocaleString('vi-VN', {style : 'currency', currency : 'VND'});

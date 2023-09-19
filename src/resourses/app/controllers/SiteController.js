@@ -16,12 +16,6 @@ class SiteController {
                 })
             )
             .catch(next)    
-        User.findById('650138092930a6fd56ac7fbd')
-            .then(userInDB => {
-                res.user = userInDB
-
-            })
-            .catch(next)
     }
 
 }

@@ -1,0 +1,76 @@
+<div class="container content__padding-product">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <div class="product__menu-left">
+              <img src="https://azpet.com.vn/wp-content/uploads/2021/07/azpet-banner-cho-canh-desktop.jpg" alt="" class="img-cover">
+            </div>
+        </div>
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <section class="section product" id="product__dog" aria-label="product">
+              <div class="container">
+                <div class="row product__menu-top">
+                  <div class="col-sm-3 col-md-3 col-lg-3">
+                    <button class="product__menu-title active-link">Phổ biến nhất</button>
+                  </div>
+                  <div class="col-sm-3 col-md-3 col-lg-3">
+                    <button class="product__menu-title">Độc hiếm</button>
+                  </div>
+                  <div class="col-sm-3 col-md-3 col-lg-3">
+                    <button class="product__menu-title">Chó bảo vệ</button>
+                  </div>
+                  <div class="col-sm-3 col-md-3 col-lg-3">
+                    <button class="product__menu-title">Chó ngao</button>
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+                  <div class="row">
+                    {{#each pets}}
+                      {{#xif this.type 'dog'}}
+                      <div class="col-sm-12 col-md-6 col-lg-3">
+                          <li class="scrollbar-item">
+                          <div class="category-card product__pet">
+
+                              <figure class="card-banner img-holder product__pet-img">
+                                <a href="pets/{{this.slug}}"> 
+                                  <img src="{{this.img}}" 
+                                      class="img-cover ">
+                                </a>
+                              </figure>
+
+                              <a href="pets/{{this.slug}}">
+                                <h3 class="h3 card-title">{{this.name}}</h3>
+                              </a>
+
+                          </div>
+                          </li>
+                      </div>
+                      {{/xif}}
+                    {{/each}}
+                  </div>
+
+
+              </div>
+            </section>
+        </div>
+    </div>
+    
+</div>
+<script>
+  const actives = document.getElementsByClassName('product__menu-title')
+  for(var active of actives){
+    active.addEventListener('click', function(){
+      for(var i = 0; i < actives.length; i++ ){
+          if(!(actives[i].classList.contains('active-link'))){
+            {{!-- actives[i].classList += ' active-link' --}}
+            console.log('da them class')
+          }else{
+            {{!-- actives[i].classList -= ' active-link' --}}
+            console.log('da xoas class')
+          }
+        }
+    })
+  }
+
+  
+</script>
