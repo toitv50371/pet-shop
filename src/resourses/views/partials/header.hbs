@@ -23,8 +23,18 @@
               <a class="nav-link" href="#footer">Liên hệ</a>
             </li>
           </ul>
-          <form class="header__account text-light">
+          <div class="header__account text-light">
+            <div class="header__search">
+              <form method="GET" action="search">
+                
+                <input type="text" class="header__search-input" name="q"  placeholder="Sen muốn tìm gì?"> 
+                <button type="submit"><i class="ri-search-line header__search-icon"></i></button>
+              </form>
+              {{!-- <section id="searchResults"></section> --}}
+            </div>
+            
             {{!-- <div class="header__user">
+            
               <a href="" class="header__account-icon">
                 <i class="ri-user-3-line"></i>
               </a>
@@ -55,9 +65,44 @@
 
               
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </nav>
     
   </header>
+
+  <script>
+
+    {{!-- function sendData(e){
+      const searchResults = document.getElementById('searchResults')
+      let match = e.value.match(/^[a-zA-Z]*/)
+      let match2 = e.value.match(/\s*/)
+      if(match2[0] == e.value){
+        searchResults.innerHTML = ''
+        return
+      }
+      if(match[0] === e.value){
+          fetch('search',  {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({payload: e.value})
+        }).then(res => res.json()).then(data => {
+          let payload = data.payload
+          searchResults.innerHTML = ''
+          if(payload.length < 1){
+            searchResults.innerHTML = '<p>Không tìm thấy!!!</p>'
+            return
+          }
+          payload.forEach((item, index) => {
+            if(index > 0) searchResults.innerHTML += '<hr>'
+            searchResults.innerHTML += `<p>${item.name}</p>`
+          })
+        })
+        return
+      }
+      searchResults.innerHTML = ''
+      
+    } --}}
+ 
+  </script>

@@ -32,13 +32,13 @@
                           <div class="category-card product__pet">
 
                               <figure class="card-banner img-holder product__pet-img">
-                                <a href="pets/{{this.slug}}"> 
+                                <a href="/pets/{{this.slug}}"> 
                                   <img src="{{this.img}}" 
                                       class="img-cover ">
                                 </a>
                               </figure>
 
-                              <a href="pets/{{this.slug}}">
+                              <a href="/pets/{{this.slug}}">
                                 <h3 class="h3 card-title">{{this.name}}</h3>
                               </a>
 
@@ -57,20 +57,13 @@
     
 </div>
 <script>
-  const actives = document.getElementsByClassName('product__menu-title')
-  for(var active of actives){
+  const actives = document.querySelectorAll('.product__menu-title')
+  actives.forEach(active => {
     active.addEventListener('click', function(){
-      for(var i = 0; i < actives.length; i++ ){
-          if(!(actives[i].classList.contains('active-link'))){
-            {{!-- actives[i].classList += ' active-link' --}}
-            console.log('da them class')
-          }else{
-            {{!-- actives[i].classList -= ' active-link' --}}
-            console.log('da xoas class')
-          }
-        }
+      document.querySelector('.active-link').classList.remove('active-link')
+      active.classList.add('active-link')
     })
-  }
+  })
 
   
 </script>
