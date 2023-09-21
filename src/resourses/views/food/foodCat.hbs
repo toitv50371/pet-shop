@@ -1,3 +1,35 @@
-<div class="container content__padding">
-    <h1>Food cat</h1>
+<div class="container">
+    <h2 class="h2 section-title">
+    Thức ăn cho<span class="span"> Boss</span> 
+    </h2>
+    <div class="row">
+    {{#each foods}}
+        {{#xif this.type 'cat'}}
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <li class="scrollbar-item">
+            <div class="category-card  product__pet">
+
+                <figure class="card-banner img-holder product__pet-img">
+                <a href="/foods/{{this.slug}}">
+                    <img src="{{this.img}}" class="img-cover">
+                </a>
+                </figure>
+
+                <a href="/foods/{{this.slug}}">
+                <p class="pet__food-description">
+                    {{this.name}}
+                </p>
+                </a>
+                
+                <p class="pet__food-price">
+                {{formatCurrecy this.price}}đ
+                </p>
+
+            </div>
+            </li>
+        </div>
+        {{/xif}}
+        {{/each}}
+    </div>
+
 </div>

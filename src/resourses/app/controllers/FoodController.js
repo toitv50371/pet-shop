@@ -6,10 +6,24 @@ const Carts = require('../models/Carts')
 class FoodController {
 
     foodDog(req, res, next){
-        res.render('food/foodDog')
+        Promise.all([ Foods.find({}), Carts.countDocuments()])
+        .then(([foods, counts]) =>
+            res.render('food/foodDog',{
+                foods: foods.map(food => food.toObject()),
+                counts: counts                
+            })
+        )
+        .catch(next)  
     }
     foodCat(req, res, next){
-        res.render('food/foodCat')
+        Promise.all([ Foods.find({}), Carts.countDocuments()])
+        .then(([foods, counts]) =>
+            res.render('food/foodCat',{
+                foods: foods.map(food => food.toObject()),
+                counts: counts                
+            })
+        )
+        .catch(next)  
     }
     index(req, res, next) {
 

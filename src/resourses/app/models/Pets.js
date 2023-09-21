@@ -8,8 +8,9 @@ mongoose.plugin(slug);
 const PetsSchema = new Schema({
     name: {type: String},
     age: {type: String},
-    price: {type: Number, },
+    price: {type: Number,},
     type: {type: String},
+    kind: {type: String},
     img: {type: String},
     img1: {type: String},
     img2: {type: String},

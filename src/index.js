@@ -33,6 +33,11 @@ app.engine('hbs', handlebars.engine({
                 return options.fn(this)
             }
         },
+        xifKind (v1, v2, v3, v4, options){
+            if(v1==v2 & v3==v4){
+                return options.fn(this)
+            }
+        },
         pay(num, val) {
             return num * val
         },

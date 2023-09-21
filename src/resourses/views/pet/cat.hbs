@@ -1,5 +1,177 @@
+<div class="container content__padding-product">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <div class="product__menu-left">
+              <img src="https://azpet.com.vn/wp-content/uploads/2021/07/azpet-banner-meo-canh-desktop-1.jpg" alt="" class="img-cover">
+            </div>
+        </div>
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <section class="section product" id="product__dog" aria-label="product">
+              <div class="container">
+                <div class="row tab product__menu-top">
+                  <div class="col-sm-3 col-md-3 col-lg-3">
+                    <button class="product__menu-title tablinks active-link" onclick="showKindPets(event, 'popular')">Phổ biến nhất</button>
+                  </div>
+                  <div class="col-sm-3 col-md-3 col-lg-3">
+                    <button class="product__menu-title tablinks" onclick="showKindPets(event, 'rarely')">Độc hiếm</button>
+                  </div>
+                  <div class="col-sm-3 col-md-3 col-lg-3">
+                    <button class="product__menu-title tablinks" onclick="showKindPets(event, 'noble')">Quý tộc</button>
+                  </div>
+                  <div class="col-sm-3 col-md-3 col-lg-3">
+                    <button class="product__menu-title tablinks" onclick="showKindPets(event, 'cute')">Đáng yêu</button>
+                  </div>
+                </div>
+              </div>
 
-<div class="container content__padding">
+              {{!-- tab content --}}
+              <div id="popular" class="tabcontent">
+                <div class="container">
+                  <div class="row">
+                    {{#each pets}}
+                      {{#xifKind this.type 'cat' this.kind 'popular'}}
+                      <div class="col-sm-12 col-md-6 col-lg-3">
+                          <li class="scrollbar-item">
+                          <div class="category-card product__pet">
 
-    <h1>Hello guy cat!</h1>
+                              <figure class="card-banner img-holder product__pet-img">
+                                <a href="/pets/{{this.slug}}"> 
+                                  <img src="{{this.img}}" 
+                                      class="img-cover ">
+                                </a>
+                              </figure>
+
+                              <a href="/pets/{{this.slug}}">
+                                <h3 class="h3 card-title">{{this.name}}</h3>
+                              </a>
+
+                          </div>
+                          </li>
+                      </div>
+                      {{/xifKind}}
+                    {{/each}}
+                  </div>
+                </div>
+              </div>
+              <div id="rarely" class="tabcontent">
+                <div class="container">
+                  <div class="row">
+                    {{#each pets}}
+                      {{#xifKind this.type 'cat' this.kind 'rarely'}}
+                      <div class="col-sm-12 col-md-6 col-lg-3">
+                          <li class="scrollbar-item">
+                          <div class="category-card product__pet">
+
+                              <figure class="card-banner img-holder product__pet-img">
+                                <a href="/pets/{{this.slug}}"> 
+                                  <img src="{{this.img}}" 
+                                      class="img-cover ">
+                                </a>
+                              </figure>
+
+                              <a href="/pets/{{this.slug}}">
+                                <h3 class="h3 card-title">{{this.name}}</h3>
+                              </a>
+
+                          </div>
+                          </li>
+                      </div>
+                      {{/xifKind}}
+                    {{/each}}
+                  </div>
+                </div>
+              </div>
+              <div id="noble" class="tabcontent">
+                <div class="container">
+                  <div class="row">
+                    {{#each pets}}
+                      {{#xifKind this.type 'cat' this.kind 'noble'}}
+                      <div class="col-sm-12 col-md-6 col-lg-3">
+                          <li class="scrollbar-item">
+                          <div class="category-card product__pet">
+
+                              <figure class="card-banner img-holder product__pet-img">
+                                <a href="/pets/{{this.slug}}"> 
+                                  <img src="{{this.img}}" 
+                                      class="img-cover ">
+                                </a>
+                              </figure>
+
+                              <a href="/pets/{{this.slug}}">
+                                <h3 class="h3 card-title">{{this.name}}</h3>
+                              </a>
+
+                          </div>
+                          </li>
+                      </div>
+                      {{/xifKind}}
+                    {{/each}}
+                  </div>
+                </div>
+              </div>
+               <div id="cute" class="tabcontent">
+                <div class="container">
+                  <div class="row">
+                    {{#each pets}}
+                      {{#xifKind this.type 'cat' this.kind 'cute'}}
+                      <div class="col-sm-12 col-md-6 col-lg-3">
+                          <li class="scrollbar-item">
+                          <div class="category-card product__pet">
+
+                              <figure class="card-banner img-holder product__pet-img">
+                                <a href="/pets/{{this.slug}}"> 
+                                  <img src="{{this.img}}" 
+                                      class="img-cover ">
+                                </a>
+                              </figure>
+
+                              <a href="/pets/{{this.slug}}">
+                                <h3 class="h3 card-title">{{this.name}}</h3>
+                              </a>
+
+                          </div>
+                          </li>
+                      </div>
+                      {{/xifKind}}
+                    {{/each}}
+                  </div>
+                </div>
+              </div>
+              
+            </section>
+        </div>
+    </div>
+    
 </div>
+<script>
+  {{!-- const actives = document.querySelectorAll('.product__menu-title')
+  actives.forEach(active => {
+    active.addEventListener('click', function(){
+      document.querySelector('.active-link').classList.remove('active-link')
+      active.classList.add('active-link')
+    })
+  }) --}}
+  // tab bar
+  function showKindPets(evt, kindName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active-link", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(kindName).style.display = "block";
+    evt.currentTarget.className += " active-link";
+}
+
+  
+</script>

@@ -1039,13 +1039,20 @@ body {
   .product__menu-title:hover::after{
     width: 100%;
   }
+  .tabcontent {
+    display: none;
+  }
   /* Active link */
-.active-link{
-  color: var(--white-color);
-}
-.active-link::after{
-  width: 100%;
-}
+  .active-link{
+    color: var(--white-color);
+    
+  }
+  .active-link::after{
+    width: 100%;
+  }
+  #popular{
+    display: block;
+  }
 
 
 /*-----------------------------------*\
